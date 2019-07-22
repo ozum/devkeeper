@@ -1,9 +1,14 @@
 {
   "name": "devkeeper",
   "label": "devkeeper",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Keeps node module development environment up to date. Installs config files, development dependencies and modifies your package.json file and keeps them updated.",
-  "keywords": ["scripts", "boilerplate", "keep", "development keeper"],
+  "keywords": [
+    "scripts",
+    "boilerplate",
+    "keep",
+    "development keeper"
+  ],
   "engines": {
     "node": ">=10.8.0"
   },
@@ -114,12 +119,16 @@
     "cli-ux": "^5.3.1"
   },
   "devkeeper": {
-    "features": ["vuepress"]
+    "features": [
+      "vuepress"
+    ]
   },
   "oclif": {
     "commands": "./dist/commands",
     "bin": "devkeeper",
-    "plugins": ["@oclif/plugin-help"]
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
   },
   "devkeeperModifications": {
     "files": [
@@ -194,7 +203,14 @@
       "dependencies.vuepress-bar"
     ],
     "arrayKeys": {
-      "files": ["/bin", "/lib/**/!(*.spec|*.test)*.*", "/dist/**/!(*.spec|*.test)*.*", "/@types", "/module-files", "LICENSE"]
+      "files": [
+        "/bin",
+        "/lib/**/!(*.spec|*.test)*.*",
+        "/dist/**/!(*.spec|*.test)*.*",
+        "/@types",
+        "/module-files",
+        "LICENSE"
+      ]
     },
     "version": "0.1.0"
   }

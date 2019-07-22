@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.1 (2019-07-22)
+
+
+### Bug Fixes
+
+* update release script ([e0b256f](https://github.com/ozum/devkeeper/commit/e0b256f))
+
+
+
 ### [0.0.46](https://github.com/ozum/scrap/compare/v0.0.45...v0.0.46) (2019-07-22)
 
 
