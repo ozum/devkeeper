@@ -1,6 +1,7 @@
 # devkeeper
 
-
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 Keeps node module development environment up to date. Installs config files, development dependencies and modifies your package.json file and keeps them updated.
 
@@ -60,7 +61,7 @@ $ npm install -g devkeeper
 $ devkeeper COMMAND
 running command...
 $ devkeeper (-v|--version|version)
-devkeeper/0.1.0 darwin-x64 node-v12.4.0
+devkeeper/0.1.1 darwin-x64 node-v12.4.0
 $ devkeeper --help [COMMAND]
 USAGE
   $ devkeeper COMMAND
@@ -107,7 +108,7 @@ EXAMPLE
   $ devkeeper uninstall
 ```
 
-_See code: [dist/commands/uninstall.js](https://github.com/ozum/devkeeper/blob/v0.1.0/dist/commands/uninstall.js)_
+_See code: [dist/commands/uninstall.js](https://github.com/ozum/devkeeper/blob/v0.1.1/dist/commands/uninstall.js)_
 
 ## `devkeeper update`
 
@@ -127,7 +128,7 @@ EXAMPLES
   $ devkeeper update --features vuepress
 ```
 
-_See code: [dist/commands/update.js](https://github.com/ozum/devkeeper/blob/v0.1.0/dist/commands/update.js)_
+_See code: [dist/commands/update.js](https://github.com/ozum/devkeeper/blob/v0.1.1/dist/commands/update.js)_
 <!-- commandsstop -->
 
 # `package.json` Scripts
@@ -189,7 +190,7 @@ Packages: [commitizen](https://github.com/commitizen/cz-cli), [cz-conventional-c
 
 When you commit with Commitizen, you'll be prompted to fill out any required commit fields at commit time.
 
-![images](images/commitizen-cli.png)
+![images](assets/images/commitizen-cli.png)
 
 ## Commit Lint & Standard Version
 
