@@ -5,14 +5,7 @@
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "/bin",
-    "/lib/**/!(*.spec|*.test)*.*",
-    "/dist/**/!(*.spec|*.test)*.*",
-    "/@types",
-    "/module-files",
-    "LICENSE"
-  ],
+  "files": ["/bin", "/lib/**/!(*.spec|*.test)*.*", "/dist/**/!(*.spec|*.test)*.*", "/@types", "/module-files", "LICENSE"],
   "homepage": "https: //github.com/ozum/{{ intermodular.targetModule.nameWithoutUser }}",
   "bugs": "https: //github.com/ozum/{{ intermodular.targetModule.nameWithoutUser }}/issues",
   "repository": "github:ozum/{{ intermodular.targetModule.nameWithoutUser }}",
@@ -33,7 +26,7 @@
     "validate": "npm-run-all -p lint test",
     "commit": "git-cz",
     "commit:add": "git add -A && npm run commit",
-    "release": "npm run readme && npm-run-all build commit:add && git checkout master && git pull origin master && standard-version --no-verify && git push --follow-tags origin master && npm publish"
+    "release": "npm run build && npm run readme && npm run commit:add && git checkout master && git pull origin master && standard-version --no-verify && git push --follow-tags origin master && npm publish"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
