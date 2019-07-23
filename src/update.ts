@@ -14,8 +14,6 @@ export default function update(intermodular: Intermodular, options: UpdateOption
   const packageUtil = new PackageUtil(intermodular);
   const targetPackage = targetModule.getDataFileSync("package.json");
   const addedFiles = [".gitignore"];
-  const dependencies = { ...targetPackage.data.dependencies };
-  const devDependencies = { ...targetPackage.data.devDependencies };
   const features = ["common", ...(options.features || intermodular.targetModule.config.features || [])];
 
   uninstall(intermodular, { savePackage: false, uninstallPackages: false });
@@ -81,10 +79,7 @@ export default function update(intermodular: Intermodular, options: UpdateOption
   });
   targetPackage.saveSync();
 
-  const dependenciesChanged =
-    !isEqual(targetPackage.get("dependencies"), dependencies) || !isEqual(targetPackage.get("devDependencies"), devDependencies);
-
-  if (options.addDependencies && dependenciesChanged) {
+  if (options.addDependencies && packageUtil.dependenciesChanged) {
     targetModule.install();
   }
 }

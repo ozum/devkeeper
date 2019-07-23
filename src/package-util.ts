@@ -5,6 +5,7 @@ import isEqual from "lodash.isequal";
 import DataFile from "intermodular/dist/data-file";
 import * as nunjucks from "nunjucks";
 import * as path from "path";
+
 import { mergeArrayUnique } from "./utils";
 
 interface Modifications {
@@ -59,11 +60,15 @@ export default class PackageUtil {
   private intermodular: Intermodular;
   private sourcePackage: DataFile;
   private targetPackage: DataFile;
+  private dependenciesSnapshot: Record<string, string>;
+  private devDependenciesSnapshot: Record<string, string>;
 
   public constructor(intermodular: Intermodular) {
     this.intermodular = intermodular;
     this.sourcePackage = this.intermodular.sourceModule.getDataFileSync("package.json");
     this.targetPackage = this.intermodular.targetModule.getDataFileSync("package.json");
+    this.dependenciesSnapshot = { ...(this.targetPackage.get("dependencies") || {}) };
+    this.devDependenciesSnapshot = { ...(this.targetPackage.get("devDependencies") || {}) };
   }
 
   /**
@@ -116,6 +121,16 @@ export default class PackageUtil {
       });
     }
     return this.targetPackage.get(this.modificationsKey);
+  }
+
+  /**
+   * Whether dependencies or devDependencies are changed.
+   */
+  public get dependenciesChanged(): boolean {
+    return (
+      !isEqual(this.targetPackage.get("dependencies") || {}, this.dependenciesSnapshot) ||
+      !isEqual(this.targetPackage.get("devDependencies") || {}, this.devDependenciesSnapshot)
+    );
   }
 
   /**

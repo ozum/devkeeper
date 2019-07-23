@@ -1,10 +1,6 @@
 import Intermodular, { DependencyType } from "intermodular";
 import PackageUtil from "./package-util";
 
-// if (uninstallPackages) {
-//   targetModule.uninstall(this.addedDependencies.join(" "));
-// }
-
 export default function uninstall(
   intermodular: Intermodular,
   { savePackage = true, uninstallPackages }: { savePackage?: boolean; uninstallPackages?: boolean } = {}
@@ -31,7 +27,7 @@ export default function uninstall(
     targetPackage.saveSync();
   }
 
-  if (targetModule.hasAnyDependency(sourceModule.name, [DependencyType.DevDependencies]) && uninstallPackages) {
-    targetModule.uninstall(packageUtil.addedDependencies.join(" "));
+  if (uninstallPackages && sourceModule.name !== targetModule.name) {
+    targetModule.uninstall(packageUtil.addedDependencies);
   }
 }

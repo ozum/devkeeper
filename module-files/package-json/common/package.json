@@ -33,7 +33,7 @@
     "validate": "npm-run-all -p lint test",
     "commit": "git-cz",
     "commit:add": "git add -A && npm run commit",
-    "release": "npm run build && npm run readme && npm run commit:add && git checkout master && git pull origin master && standard-version --no-verify && git push --follow-tags origin master && npm publish"
+    "release": "(git diff --quiet && git diff --staged --quiet && echo No files has been changed) || (npm-run-all -p build commit:add && git checkout master && git pull origin master && standard-version --no-verify && npm run readme && git add README.md && git commit --amend --no-edit && git push --follow-tags origin master && npm publish)"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
@@ -50,7 +50,7 @@
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^22.13.4",
+    "eslint-plugin-jest": "^22.13.6",
     "eslint-plugin-prettier": "^3.1.0",
     "husky": "^3.0.1",
     "jest": "^24.8.0",
@@ -68,7 +68,7 @@
     "typedoc-plugin-example-tag": "^1.0.2",
     "typedoc-plugin-external-module-map": "^1.0.0",
     "typedoc-plugin-external-module-name": "^2.1.0",
-    "typedoc-plugin-markdown": "^2.0.10",
+    "typedoc-plugin-markdown": "^2.0.11",
     "typedoc-plugin-npm-externals": "^1.0.0",
     "typescript": "^3.5.3"
   }
