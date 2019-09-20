@@ -1,5 +1,9 @@
+function a(): number {
+  return 1;
+}
+
 describe("Some", () => {
   it("should...", () => {
-    expect(1).toBe(1);
+    expect(a()).toBe(1);
   });
 });

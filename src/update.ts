@@ -1,6 +1,5 @@
 import Intermodular, { LogLevel } from "intermodular";
 import { normalize, join } from "path";
-import isEqual from "lodash.isequal";
 import PackageUtil from "./package-util";
 import uninstall from "./uninstall";
 
@@ -57,7 +56,7 @@ export default function update(intermodular: Intermodular, options: UpdateOption
   // ─── JEST ───────────────────────────────────────────────────────────────────────
   //
 
-  const coverageThreshold = config.get("test.coverageThreshold") || 100;
+  const coverageThreshold = config.get("test.coverageThreshold") === undefined ? 100 : config.get("test.coverageThreshold");
   const jestConfig = targetModule.getDataFileSync(`jest.config.json`);
   jestConfig.set("coverageThreshold", {
     global: {

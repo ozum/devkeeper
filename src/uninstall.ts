@@ -1,4 +1,4 @@
-import Intermodular, { DependencyType } from "intermodular";
+import Intermodular from "intermodular";
 import PackageUtil from "./package-util";
 
 export default function uninstall(
