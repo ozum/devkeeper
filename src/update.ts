@@ -34,7 +34,7 @@ export default function update(intermodular: Intermodular, options: UpdateOption
   // ─── COSMICONFIG ────────────────────────────────────────────────────────────────
   //
   const config = targetModule.getDataFileSync(`.${sourceModule.nameWithoutUser}rc.json`);
-  config.set("test.coverageThreshold", 100, { ifNotExists: true });
+  config.set("test.coverageThreshold", { global: { branches: 100, functions: 100, lines: 100, statements: 100 } }, { ifNotExists: true });
   config.saveSync();
   targetModule.reloadConfig();
 
@@ -56,16 +56,9 @@ export default function update(intermodular: Intermodular, options: UpdateOption
   // ─── JEST ───────────────────────────────────────────────────────────────────────
   //
 
-  const coverageThreshold = config.get("test.coverageThreshold") === undefined ? 100 : config.get("test.coverageThreshold");
+  const testConfig = config.get("test");
   const jestConfig = targetModule.getDataFileSync(`jest.config.json`);
-  jestConfig.set("coverageThreshold", {
-    global: {
-      branches: coverageThreshold,
-      functions: coverageThreshold,
-      lines: coverageThreshold,
-      statements: coverageThreshold,
-    },
-  });
+  jestConfig.assign(testConfig, { ifNotExists: true });
   jestConfig.saveSync();
 
   //
