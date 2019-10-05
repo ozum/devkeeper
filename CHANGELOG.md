@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/ozum/devkeeper/compare/v0.1.4...v0.1.7) (2019-10-05)
+
+
+### Bug Fixes
+
+* add "--config jest.config.json" to test script ([90f2732](https://github.com/ozum/devkeeper/commit/90f2732))
+* update jest.config.json ([71152c8](https://github.com/ozum/devkeeper/commit/71152c8))
+
 ### [0.1.6](https://github.com/ozum/devkeeper/compare/v0.1.4...v0.1.6) (2019-10-05)
 
 
