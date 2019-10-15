@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/ozum/devkeeper/compare/v0.1.4...v0.1.11) (2019-10-15)
+
+
+### Bug Fixes
+
+* add "--config jest.config.json" to test script ([90f2732](https://github.com/ozum/devkeeper/commit/90f2732))
+* fix nunjucks env ([cb61cea](https://github.com/ozum/devkeeper/commit/cb61cea))
+* update jest.config.json ([71152c8](https://github.com/ozum/devkeeper/commit/71152c8))
+
+
+### Features
+
+* add devkeeper to bin ([bc3bd33](https://github.com/ozum/devkeeper/commit/bc3bd33))
+* add devkeeper:update to package.json ([ea15ca2](https://github.com/ozum/devkeeper/commit/ea15ca2))
+
 ### [0.1.10](https://github.com/ozum/devkeeper/compare/v0.1.4...v0.1.10) (2019-10-15)
 
 
