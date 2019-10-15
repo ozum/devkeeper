@@ -21,7 +21,6 @@
   },
   "license": "",
   "scripts": {
-    "devkeeper:update": "devkeeper update",
     "build": "rm -rf dist && tsc -b",
     "typedoc:md": "rm -rf api-docs-md && typedoc --platform vuepress --plugin typedoc-plugin-example-tag,typedoc-plugin-markdown --excludeExternals --excludePrivate --excludeProtected --theme markdown --readme none --mode file --out api-docs-md",
     "typedoc:html": "rm -rf api-docs-html && typedoc --plugin typedoc-plugin-example-tag,typedoc-neo-theme --theme ./node_modules/typedoc-neo-theme/bin/default --mode file --out api-docs-html",

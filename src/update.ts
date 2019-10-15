@@ -13,7 +13,8 @@ export default function update(intermodular: Intermodular, options: UpdateOption
   const packageUtil = new PackageUtil(intermodular);
   const targetPackage = targetModule.getDataFileSync("package.json");
   const addedFiles = [".gitignore"];
-  const features = ["common", ...(options.features || intermodular.targetModule.config.features || [])];
+  const extraFeatures = [...(options.features || []), ...(intermodular.targetModule.config.features || [])];
+  const features = ["common", ...extraFeatures];
 
   uninstall(intermodular, { savePackage: false, uninstallPackages: false });
 
@@ -35,6 +36,9 @@ export default function update(intermodular: Intermodular, options: UpdateOption
   //
   const config = targetModule.getDataFileSync(`.${sourceModule.nameWithoutUser}rc.json`);
   config.set("test.coverageThreshold", { global: { branches: 100, functions: 100, lines: 100, statements: 100 } }, { ifNotExists: true });
+  if (extraFeatures.length > 0) {
+    config.set("features", extraFeatures);
+  }
   config.saveSync();
   targetModule.reloadConfig();
 

@@ -250,7 +250,13 @@ export default class PackageUtil {
   ): void {
     // Add feature specific tasks such as `microbundle`, `vuepress` etc.
     const featuredPackagesData = features.map(feature => this.getPackageJson(feature));
-    const newKeys = merge({}, ...featuredPackagesData);
+    const devkeeperUpdateScript = {
+      scripts: {
+        "devkeeper:update": addDependencies ? "npx devkeeper update -d" : "devkeeper update",
+      },
+    };
+
+    const newKeys = merge({}, ...featuredPackagesData, devkeeperUpdateScript);
     this.updateKeys(newKeys, { addDependencies });
 
     // Add modifications to `package.json`.

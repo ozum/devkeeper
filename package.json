@@ -68,7 +68,7 @@
     "@oclif/plugin-help": "^2.2.1",
     "fast-outdated": "^3.0.0",
     "globby": "^10.0.1",
-    "intermodular": "^0.5.8",
+    "intermodular": "^0.5.9",
     "lodash.differencewith": "^4.5.0",
     "lodash.escaperegexp": "^4.1.2",
     "lodash.get": "^4.4.2",
@@ -223,6 +223,6 @@
         "LICENSE"
       ]
     },
-    "version": "0.1.9"
+    "version": "0.1.11"
   }
 }
