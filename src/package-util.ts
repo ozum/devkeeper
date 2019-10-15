@@ -272,6 +272,7 @@ export default class PackageUtil {
     // Order keys and save
     this.targetPackage.orderKeys(Object.keys(this.keyConditions));
     this.targetPackage.orderKeysOf("scripts");
+    this.targetPackage.orderKeysOf("dependencies");
     this.targetPackage.orderKeysOf("devDependencies");
   }
 
