@@ -1,5 +1,5 @@
 {
-  "//": "---- DON'T CHANGE THIS FILE IT IS AUTO GENERATED. Change '.devkeeperrc.json' file's 'test' key ----",
+  "//": "---- DON'T CHANGE THIS FILE IT IS AUTO GENERATED. Change '.devkeeperrc.json' file's 'test' key and execute `npm run devkeeper:update` ----",
   "preset": "ts-jest",
   "testEnvironment": "node",
   "coveragePathIgnorePatterns": [
