@@ -8,6 +8,8 @@ import * as path from "path";
 
 import { mergeArrayUnique } from "./utils";
 
+const nunjucksEnv = new nunjucks.Environment(new nunjucks.FileSystemLoader(path.join(__dirname, "../module-files/package-json")));
+
 interface Modifications {
   /**
    * Version of the module which made modifications.
@@ -202,7 +204,7 @@ export default class PackageUtil {
    * @returns JSON data of `package.json` for given feature.
    */
   private getPackageJson(feature: string): Record<string, any> {
-    const content = nunjucks.render(path.join(__dirname, "../module-files/package-json", feature, "package.json"), {
+    const content = nunjucksEnv.render(path.join(feature, "package.json"), {
       intermodular: this.intermodular,
       path,
     });
