@@ -1,5 +1,5 @@
 {
-  "name": "common-feature",
+  "name": "devkeeper",
   "label": "devkeeper",
   "version": "0.1.17",
   "description": "Keeps node module development environment up to date. Installs config files, development dependencies and modifies your package.json file and keeps them updated.",

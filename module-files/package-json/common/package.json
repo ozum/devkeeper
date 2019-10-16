@@ -1,5 +1,4 @@
 {
-  "name": "common-feature",
   "keywords": [],
   "engines": {
     "node": ">=10.8.0"
