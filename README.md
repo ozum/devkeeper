@@ -8,8 +8,8 @@ Keeps node module development environment up to date. Installs config files, dev
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [Synopsis](#synopsis)
-  - [Installed](#installed)
-  - [Non-Installed](#non-installed)
+  - [Installation](#installation)
+  - [Updating to latest version](#updating-to-latest-version)
 - [Usage](#usage)
 - [Commands](#commands)
 - [`package.json` Scripts](#packagejson-scripts)
@@ -34,20 +34,22 @@ Keeps node module development environment up to date. Installs config files, dev
 
 # Synopsis
 
-## Installed
+**OVERWRITE WARNING**: Devkeeper creates and updates your node.js project boilerplate by updating and **overwriting** your configuration files.
+
+## Installation
 
 ```bash
 $ npm install -D devkeeper
 ```
 
-`postinstall` script executes updates your module and installs necessary scripts. From now on, just update `moe-scripts`
-to update all `devDependencies`.
-
-## Non-Installed
-
+```bash
+$ npx devkeeper update -d --features vuepress
 ```
-$ npx devkeeper update --features vuepress
-$ npx devkeeper uninstall
+
+## Updating to latest version
+
+```bash
+$ npm run devkeeper:update
 ```
 
 # Usage
@@ -59,7 +61,7 @@ $ npm install -g devkeeper
 $ devkeeper COMMAND
 running command...
 $ devkeeper (-v|--version|version)
-devkeeper/0.1.15 darwin-x64 node-v12.4.0
+devkeeper/0.1.16 darwin-x64 node-v12.4.0
 $ devkeeper --help [COMMAND]
 USAGE
   $ devkeeper COMMAND
@@ -108,7 +110,7 @@ EXAMPLE
   $ devkeeper uninstall
 ```
 
-_See code: [dist/commands/uninstall.js](https://github.com/ozum/devkeeper/blob/v0.1.15/dist/commands/uninstall.js)_
+_See code: [dist/commands/uninstall.js](https://github.com/ozum/devkeeper/blob/v0.1.16/dist/commands/uninstall.js)_
 
 ## `devkeeper update`
 
@@ -128,7 +130,7 @@ EXAMPLES
   $ devkeeper update --features vuepress
 ```
 
-_See code: [dist/commands/update.js](https://github.com/ozum/devkeeper/blob/v0.1.15/dist/commands/update.js)_
+_See code: [dist/commands/update.js](https://github.com/ozum/devkeeper/blob/v0.1.16/dist/commands/update.js)_
 
 <!-- commandsstop -->
 
