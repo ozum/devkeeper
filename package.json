@@ -39,6 +39,8 @@
     "commit": "git-cz",
     "commit:add": "git add -A && npm run commit",
     "devkeeper:update": "devkeeper update",
+    "docs:build": "npm-run-all -p typedoc:md typedoc:html && rm -rf docs/nav.02.api docs/.vuepress/public/api-site && mv api-docs-md docs/nav.02.api && mv api-docs-html docs/.vuepress/public/api-site && cp assets/typedoc/01.typedoc-iframe.md docs/nav.02.api/ && vuepress build docs",
+    "docs:dev": "vuepress dev docs",
     "format": "prettier --write --config .prettierrc --check 'src/**/*.+(js|jsx|json|less|css|ts|tsx|md|vue|gql)'",
     "lint": "eslint --max-warnings=0 --ignore-path .gitignore --cache 'src/**/*.+(js|jsx|ts|tsx|vue)'",
     "postinstall": "bin/run update",
@@ -50,7 +52,7 @@
     "test": "NODE_ENV=test jest --coverage --config=jest.config.json",
     "test:watch": "NODE_ENV=test jest --watch --config=jest.config.json",
     "typedoc:html": "rm -rf api-docs-html && typedoc --plugin typedoc-plugin-example-tag,typedoc-neo-theme --theme ./node_modules/typedoc-neo-theme/bin/default --mode file --out api-docs-html",
-    "typedoc:md": "rm -rf api-docs-md && typedoc --plugin typedoc-plugin-example-tag,typedoc-plugin-markdown --excludeExternals --excludePrivate --excludeProtected --theme markdown --readme none --mode file --out api-docs-md && find api-docs-md -name \"index.md\" -exec sh -c 'mv \"$1\" \"${1%index.md}\"index2.md' - {} \\;",
+    "typedoc:md": "rm -rf api-docs-md && typedoc --platform vuepress --plugin typedoc-plugin-example-tag,typedoc-plugin-markdown --excludeExternals --excludePrivate --excludeProtected --theme markdown --readme none --mode file --out api-docs-md && find api-docs-md -name \"index.md\" -exec sh -c 'mv \"$1\" \"${1%index.md}\"index2.md' - {} \\;",
     "typedoc:single-md": "npm run typedoc:md && concat-md --dir-name-as-title api-docs-md > api.md && rm -rf api-docs-md",
     "update": "npm-run-all build update-packages && ./bin/run update",
     "update-packages": "find module-files/package-json -name \"package.json\" -exec ncu -u --packageFile {} \\; && npm run postinstall && npm install",
@@ -71,6 +73,8 @@
     "@types/prettier": "^1.18.3",
     "@typescript-eslint/eslint-plugin": "^2.4.0",
     "@typescript-eslint/parser": "^2.4.0",
+    "@vuepress/plugin-active-header-links": "^1.2.0",
+    "@vuepress/plugin-pwa": "^1.2.0",
     "commitizen": "^4.0.3",
     "concat-md": "^0.3.2",
     "cz-conventional-changelog": "^3.0.2",
@@ -97,7 +101,7 @@
     "npm-run-all": "^4.1.5",
     "nunjucks": "^3.2.0",
     "prettier": "^1.18.2",
-    "readmeasy": "^0.1.6",
+    "readmeasy": "^0.1.4",
     "resolve-cwd": "^3.0.0",
     "standard-version": "^7.0.0",
     "ts-jest": "^24.1.0",
@@ -109,7 +113,9 @@
     "typedoc-plugin-external-module-name": "^2.1.0",
     "typedoc-plugin-markdown": "^2.2.11",
     "typedoc-plugin-npm-externals": "^1.0.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.6.4",
+    "vuepress": "^1.2.0",
+    "vuepress-bar": "^0.1.1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
@@ -227,7 +233,9 @@
       ".lintstagedrc",
       ".prettierrc",
       "jest.config.json",
-      "tsconfig.json"
+      "tsconfig.json",
+      "assets/typedoc/01.typedoc-iframe.md",
+      "docs/.vuepress/config.js"
     ],
     "objectKeys": [
       "scripts.build",
@@ -243,7 +251,14 @@
       "scripts.commit",
       "scripts.commit:add",
       "scripts.release",
-      "scripts.devkeeper:update"
+      "scripts.docs:dev",
+      "scripts.docs:build",
+      "scripts.devkeeper:update",
+      "dependencies.readmeasy",
+      "dependencies.@vuepress/plugin-active-header-links",
+      "dependencies.@vuepress/plugin-pwa",
+      "dependencies.vuepress",
+      "dependencies.vuepress-bar"
     ],
     "arrayKeys": {
       "files": [
@@ -255,6 +270,6 @@
         "LICENSE"
       ]
     },
-    "version": "0.1.18"
+    "version": "0.1.20"
   }
 }
