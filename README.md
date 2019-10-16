@@ -39,11 +39,11 @@ Keeps node module development environment up to date. Installs config files, dev
 ## Installation
 
 ```bash
-$ npm install -D devkeeper
+$ npm install -D common-feature
 ```
 
 ```bash
-$ npx devkeeper update -d --features vuepress
+$ npx common-feature update -d --features vuepress
 ```
 
 ## Updating to latest version
@@ -57,11 +57,11 @@ $ npm run devkeeper:update
 <!-- usage -->
 
 ```sh-session
-$ npm install -g devkeeper
+$ npm install -g common-feature
 $ devkeeper COMMAND
 running command...
 $ devkeeper (-v|--version|version)
-devkeeper/0.1.16 darwin-x64 node-v12.4.0
+common-feature/0.1.17 darwin-x64 node-v12.4.0
 $ devkeeper --help [COMMAND]
 USAGE
   $ devkeeper COMMAND
@@ -107,10 +107,10 @@ OPTIONS
   -h, --help  show CLI help
 
 EXAMPLE
-  $ devkeeper uninstall
+  $ common-feature uninstall
 ```
 
-_See code: [dist/commands/uninstall.js](https://github.com/ozum/devkeeper/blob/v0.1.16/dist/commands/uninstall.js)_
+_See code: [dist/commands/uninstall.js](https://github.com/ozum/devkeeper/blob/v0.1.17/dist/commands/uninstall.js)_
 
 ## `devkeeper update`
 
@@ -126,11 +126,11 @@ OPTIONS
   -h, --help               show CLI help
 
 EXAMPLES
-  $ devkeeper update
-  $ devkeeper update --features vuepress
+  $ common-feature update
+  $ common-feature update --features vuepress
 ```
 
-_See code: [dist/commands/update.js](https://github.com/ozum/devkeeper/blob/v0.1.16/dist/commands/update.js)_
+_See code: [dist/commands/update.js](https://github.com/ozum/devkeeper/blob/v0.1.17/dist/commands/update.js)_
 
 <!-- commandsstop -->
 
@@ -152,7 +152,7 @@ _See code: [dist/commands/update.js](https://github.com/ozum/devkeeper/blob/v0.1
 | `test`              | Test project                                                                                                                                                                                                                   |
 | `test:watch`        | Watches for file changes and re-runs tests.                                                                                                                                                                                    |
 | `typedoc:html`      | Generates TypeDoc HTML documentation web site into `api-docs-html` directory.                                                                                                                                                  |
-| `typedoc:md`        | Generates VuePress compatible Markdown files from TypeDoc comments into `api-docs-md` directory.                                                                                                                               |
+| `typedoc:md`        | Generates VuePress compatible Markdown files from TypeDoc comments into `api-docs-md` directory. Also renames all `index.md` files (i.e. for `Index` class) as `index2.md`. (Vuepress throws error for index.md files)         |
 | `typedoc:single-md` | Generates Markdown files from TypeDoc and concatenates them into `api.md` file.                                                                                                                                                |
 | `validate`          | Lints and tests source code.                                                                                                                                                                                                   |
 
@@ -285,4 +285,4 @@ with `-f` flag i.e. (`-f vuepress`)
 | `module-files/files/[feature name]/overwrite`           | Files to be copied and overwritten even they exist in target project. Also those are deleted during uninstall.                                                                                                                                        |
 | `module-files/package-json/[feature name]/package.json` | `package.json` entries to be added to target project's `package.json`. They are `nunjucks` templates which are passed { intermodular: [intermodular](https://intermodular.ozum.net/), path: [path module](https://nodejs.org/api/path.html) } object. |
 
-`package.json` entries are merged and added to target project's `package.json`. Also changes made by this project is tracked `devkeeperModifications` key in target project's `package.json`.
+`package.json` entries are merged and added to target project's `package.json`. Also changes made by this project is tracked `common-featureModifications` key in target project's `package.json`.

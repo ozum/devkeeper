@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.17](https://github.com/ozum/devkeeper/compare/v0.1.4...v0.1.17) (2019-10-16)
+
+
+### Features
+
+* add devkeeper to bin ([bc3bd33](https://github.com/ozum/devkeeper/commit/bc3bd33fb195f3b8e9bdfcb04647251593d993cd))
+* add devkeeper:update to package.json ([ea15ca2](https://github.com/ozum/devkeeper/commit/ea15ca28f16cd3aebef923b656bed079cdb249dd))
+
+
+### Bug Fixes
+
+* add "--config jest.config.json" to test script ([90f2732](https://github.com/ozum/devkeeper/commit/90f27327ce7b69cc9f43691bd4a9ac43e8bdb39f))
+* add npm script ([d8517a6](https://github.com/ozum/devkeeper/commit/d8517a642f4d6d8215f7094e07849e7fc1f540b6))
+* add vuepress plugins ([3c62971](https://github.com/ozum/devkeeper/commit/3c6297156bb2511b56e43e58935d06ffb42098ed))
+* fix development update functionality ([ee6c773](https://github.com/ozum/devkeeper/commit/ee6c7735b8bb88dcedbf31aa8f1e23cff3fbc7a3))
+* fix nunjucks env ([cb61cea](https://github.com/ozum/devkeeper/commit/cb61ceab5b605ca5d45dfb7c32760ce6785e5627))
+* update jest.config.json ([71152c8](https://github.com/ozum/devkeeper/commit/71152c8c12e657e7ca9a55001b2523de73875d55))
+* update packages ([16366f4](https://github.com/ozum/devkeeper/commit/16366f4b9907ac63710399a01663c7e8d2cd9321))
+
 ### [0.1.16](https://github.com/ozum/devkeeper/compare/v0.1.4...v0.1.16) (2019-10-16)
 
 
