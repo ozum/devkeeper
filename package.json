@@ -1,5 +1,5 @@
 {
-  "name": "devkeeper",
+  "name": "common-feature",
   "label": "devkeeper",
   "version": "0.1.16",
   "description": "Keeps node module development environment up to date. Installs config files, development dependencies and modifies your package.json file and keeps them updated.",
@@ -52,10 +52,10 @@
     "test": "NODE_ENV=test jest --coverage --config=jest.config.json",
     "test:watch": "NODE_ENV=test jest --watch --config=jest.config.json",
     "typedoc:html": "rm -rf api-docs-html && typedoc --plugin typedoc-plugin-example-tag,typedoc-neo-theme --theme ./node_modules/typedoc-neo-theme/bin/default --mode file --out api-docs-html",
-    "typedoc:md": "rm -rf api-docs-md && typedoc --platform vuepress --plugin typedoc-plugin-example-tag,typedoc-plugin-markdown --excludeExternals --excludePrivate --excludeProtected --theme markdown --readme none --mode file --out api-docs-md",
+    "typedoc:md": "rm -rf api-docs-md && typedoc --platform vuepress --plugin typedoc-plugin-example-tag,typedoc-plugin-markdown --excludeExternals --excludePrivate --excludeProtected --theme markdown --readme none --mode file --out api-docs-md && find api-docs-md -name \"index.md\" -exec sh -c 'mv \"$1\" \"${1%index.md}\"index2.md' - {} \\;",
     "typedoc:single-md": "npm run typedoc:md && concat-md --dir-name-as-title api-docs-md > api.md && rm -rf api-docs-md",
     "update": "npm-run-all build update-packages && ./bin/run update",
-    "update-packages": "ts-node src/bin/update-module-files-packages.ts && npm run postinstall && npm install",
+    "update-packages": "find module-files/package-json -name \"package.json\" -exec ncu -u --packageFile {} \\; && npm run postinstall && npm install",
     "validate": "npm-run-all -p lint test"
   },
   "shields": [
@@ -68,30 +68,27 @@
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.13.3",
     "@oclif/plugin-help": "^2.2.1",
-    "@types/jest": "^24.0.18",
-    "@types/node": "^12.7.5",
-    "@types/prettier": "^1.18.2",
-    "@typescript-eslint/eslint-plugin": "^2.3.0",
-    "@typescript-eslint/parser": "^2.3.0",
-    "@vuepress/plugin-active-header-links": "^1.2.0",
-    "@vuepress/plugin-pwa": "^1.2.0",
+    "@types/jest": "^24.0.19",
+    "@types/node": "^12.11.1",
+    "@types/prettier": "^1.18.3",
+    "@typescript-eslint/eslint-plugin": "^2.4.0",
+    "@typescript-eslint/parser": "^2.4.0",
     "commitizen": "^4.0.3",
     "concat-md": "^0.3.2",
     "cz-conventional-changelog": "^3.0.2",
-    "eslint": "^6.4.0",
+    "eslint": "^6.5.1",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-jest": "^22.19.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "fast-outdated": "^3.0.0",
     "globby": "^10.0.1",
-    "husky": "^3.0.5",
+    "husky": "^3.0.9",
     "intermodular": "^0.5.11",
     "jest": "^24.9.0",
     "jsonlint": "^1.6.3",
     "licensor": "^4.3.0",
-    "lint-staged": "^9.2.5",
+    "lint-staged": "^9.4.2",
     "lodash.differencewith": "^4.5.0",
     "lodash.escaperegexp": "^4.1.2",
     "lodash.get": "^4.4.2",
@@ -112,11 +109,9 @@
     "typedoc-plugin-example-tag": "^1.0.2",
     "typedoc-plugin-external-module-map": "^1.0.0",
     "typedoc-plugin-external-module-name": "^2.1.0",
-    "typedoc-plugin-markdown": "^2.2.6",
+    "typedoc-plugin-markdown": "^2.2.11",
     "typedoc-plugin-npm-externals": "^1.0.0",
-    "typescript": "^3.6.3",
-    "vuepress": "^1.1.0",
-    "vuepress-bar": "^0.1.1"
+    "typescript": "^3.6.4"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
@@ -128,7 +123,8 @@
     "@types/lodash.pick": "^4.4.6",
     "@types/lodash.uniqwith": "^4.5.6",
     "@types/nunjucks": "^3.1.2",
-    "cli-ux": "^5.3.2"
+    "cli-ux": "^5.3.2",
+    "npm-check-updates": "^3.1.24"
   },
   "devkeeper": {
     "features": [
@@ -161,6 +157,7 @@
       "docs/.vuepress/config.js"
     ],
     "objectKeys": [
+      "name",
       "scripts.build",
       "scripts.typedoc:md",
       "scripts.typedoc:html",
@@ -176,7 +173,61 @@
       "scripts.release",
       "scripts.docs:dev",
       "scripts.docs:build",
-      "scripts.devkeeper:update",
+      "scripts.devkeeper:update"
+    ],
+    "arrayKeys": {
+      "files": [
+        "/bin",
+        "/lib/**/!(*.spec|*.test)*.*",
+        "/dist/**/!(*.spec|*.test)*.*",
+        "/@types",
+        "/module-files",
+        "LICENSE"
+      ]
+    },
+    "version": "0.1.16"
+  },
+  "vuepress-featureModifications": {
+    "files": [
+      ".gitignore",
+      ".commitlintrc",
+      ".czrc",
+      ".editorconfig",
+      ".eslintignore",
+      ".eslintrc.js",
+      ".gitattributes",
+      ".gitignore-to-rename",
+      ".huskyrc",
+      ".lintstagedrc",
+      ".prettierrc",
+      "jest.config.json",
+      "tsconfig.json"
+    ],
+    "objectKeys": [
+      "name"
+    ],
+    "arrayKeys": {
+      "files": []
+    },
+    "version": "0.1.16"
+  },
+  "common-featureModifications": {
+    "files": [
+      ".gitignore",
+      ".commitlintrc",
+      ".czrc",
+      ".editorconfig",
+      ".eslintignore",
+      ".eslintrc.js",
+      ".gitattributes",
+      ".gitignore-to-rename",
+      ".huskyrc",
+      ".lintstagedrc",
+      ".prettierrc",
+      "jest.config.json",
+      "tsconfig.json"
+    ],
+    "objectKeys": [
       "dependencies.@commitlint/cli",
       "dependencies.@commitlint/config-conventional",
       "dependencies.@types/jest",
@@ -211,22 +262,11 @@
       "dependencies.typedoc-plugin-external-module-name",
       "dependencies.typedoc-plugin-markdown",
       "dependencies.typedoc-plugin-npm-externals",
-      "dependencies.typescript",
-      "dependencies.@vuepress/plugin-active-header-links",
-      "dependencies.@vuepress/plugin-pwa",
-      "dependencies.vuepress",
-      "dependencies.vuepress-bar"
+      "dependencies.typescript"
     ],
     "arrayKeys": {
-      "files": [
-        "/bin",
-        "/lib/**/!(*.spec|*.test)*.*",
-        "/dist/**/!(*.spec|*.test)*.*",
-        "/@types",
-        "/module-files",
-        "LICENSE"
-      ]
+      "files": []
     },
-    "version": "0.1.12"
+    "version": "0.1.16"
   }
 }
