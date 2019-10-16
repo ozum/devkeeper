@@ -2,22 +2,23 @@
 
 # Synopsis
 
-## Installed
+**OVERWRITE WARNING**: Devkeeper creates and updates your node.js project boilerplate by updating and **overwriting** your configuration files.
+
+## Installation
 
 ```bash
 $ npm install -D {{ package.name }}
 ```
 
-`postinstall` script executes updates your module and installs necessary scripts. From now on, just update `moe-scripts`
-to update all `devDependencies`.
-
-## Non-Installed
-
-```
-$ npx {{ package.name }} update --features vuepress
-$ npx {{ package.name }} uninstall
+```bash
+$ npx {{ package.name }} update -d --features vuepress
 ```
 
+## Updating to latest version
+
+```bash
+$ npm run devkeeper:update
+```
 
 # Usage
 
