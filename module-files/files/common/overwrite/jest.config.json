@@ -7,13 +7,15 @@
     "<rootDir>/node_modules/",
     "<rootDir>/test-helper/",
     "<rootDir>/test/test-helper/",
-    "<rootDir>/src/test-helper/"
+    "<rootDir>/src/test-helper/",
+    "<rootDir>/eslintrc.js"
   ],
   "testPathIgnorePatterns": [
     "<rootDir>/dist/",
     "<rootDir>/node_modules/",
     "<rootDir>/test-helper/",
     "<rootDir>/test/test-helper/",
-    "<rootDir>/src/test-helper/"
+    "<rootDir>/src/test-helper/",
+    "<rootDir>/eslintrc.js"
   ]
 }
