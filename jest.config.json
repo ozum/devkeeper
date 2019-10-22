@@ -8,7 +8,7 @@
     "<rootDir>/test-helper/",
     "<rootDir>/test/test-helper/",
     "<rootDir>/src/test-helper/",
-    "<rootDir>/eslintrc.js"
+    "<rootDir>/.eslintrc.js"
   ],
   "testPathIgnorePatterns": [
     "<rootDir>/dist/",
@@ -16,7 +16,7 @@
     "<rootDir>/test-helper/",
     "<rootDir>/test/test-helper/",
     "<rootDir>/src/test-helper/",
-    "<rootDir>/eslintrc.js"
+    "<rootDir>/.eslintrc.js"
   ],
   "coverageThreshold": { "global": { "branches": 0, "functions": 0, "lines": 0, "statements": 0 } }
 }
