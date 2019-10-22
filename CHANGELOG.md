@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.24](https://github.com/ozum/devkeeper/compare/v0.1.4...v0.1.24) (2019-10-22)
+
+
+### Features
+
+* add devkeeper to bin ([bc3bd33](https://github.com/ozum/devkeeper/commit/bc3bd33fb195f3b8e9bdfcb04647251593d993cd))
+* add devkeeper:update to package.json ([ea15ca2](https://github.com/ozum/devkeeper/commit/ea15ca28f16cd3aebef923b656bed079cdb249dd))
+
+
+### Bug Fixes
+
+* add "--config jest.config.json" to test script ([90f2732](https://github.com/ozum/devkeeper/commit/90f27327ce7b69cc9f43691bd4a9ac43e8bdb39f))
+* add npm script ([d8517a6](https://github.com/ozum/devkeeper/commit/d8517a642f4d6d8215f7094e07849e7fc1f540b6))
+* add vuepress plugins ([3c62971](https://github.com/ozum/devkeeper/commit/3c6297156bb2511b56e43e58935d06ffb42098ed))
+* add vuepress to dependencies ([41fd87c](https://github.com/ozum/devkeeper/commit/41fd87c88fd7a1f043f1f8084e60705c634c65a2))
+* exclude .eslintrc.js from tests ([8b7be99](https://github.com/ozum/devkeeper/commit/8b7be999bcc5df07c7a22656a1fab24f63d453d2))
+* fix development update functionality ([ee6c773](https://github.com/ozum/devkeeper/commit/ee6c7735b8bb88dcedbf31aa8f1e23cff3fbc7a3))
+* fix nunjucks env ([cb61cea](https://github.com/ozum/devkeeper/commit/cb61ceab5b605ca5d45dfb7c32760ce6785e5627))
+* fix package name ([b553b16](https://github.com/ozum/devkeeper/commit/b553b16244f8319fea689a1671994de0916a0151))
+* ignore .eslintrc.js in tests ([6903b12](https://github.com/ozum/devkeeper/commit/6903b12ef4f48ea7b96957887b8d273a30105a08))
+* push --tags added to git command ([41c74cb](https://github.com/ozum/devkeeper/commit/41c74cb92ed780dc52edbb3a0b20a00932b0080e))
+* update jest.config.json ([71152c8](https://github.com/ozum/devkeeper/commit/71152c8c12e657e7ca9a55001b2523de73875d55))
+* update packages ([e0414e5](https://github.com/ozum/devkeeper/commit/e0414e5b81f6406f631aa7d56d8a3a967f2cb371))
+* update packages ([16366f4](https://github.com/ozum/devkeeper/commit/16366f4b9907ac63710399a01663c7e8d2cd9321))
+
 ### [0.1.23](https://github.com/ozum/devkeeper/compare/v0.1.4...v0.1.23) (2019-10-21)
 
 
