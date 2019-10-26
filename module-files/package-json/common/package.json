@@ -38,6 +38,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@gerrit0/typedoc": "^0.15.7",
     "@types/jest": "^24.0.20",
     "@types/node": "^12.11.7",
     "@types/prettier": "^1.18.3",
