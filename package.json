@@ -68,21 +68,21 @@
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.13.3",
     "@oclif/plugin-help": "^2.2.1",
-    "@types/jest": "^24.0.19",
-    "@types/node": "^12.11.1",
+    "@types/jest": "^24.0.20",
+    "@types/node": "^12.11.7",
     "@types/prettier": "^1.18.3",
-    "@typescript-eslint/eslint-plugin": "^2.4.0",
-    "@typescript-eslint/parser": "^2.4.0",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
     "@vuepress/plugin-active-header-links": "^1.2.0",
     "@vuepress/plugin-pwa": "^1.2.0",
     "commitizen": "^4.0.3",
     "concat-md": "^0.3.2",
     "cz-conventional-changelog": "^3.0.2",
-    "eslint": "^6.5.1",
+    "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^22.19.0",
+    "eslint-plugin-jest": "^22.20.0",
     "eslint-plugin-prettier": "^3.1.1",
     "globby": "^10.0.1",
     "husky": "^3.0.9",
@@ -101,13 +101,13 @@
     "npm-run-all": "^4.1.5",
     "nunjucks": "^3.2.0",
     "prettier": "^1.18.2",
-    "readmeasy": "^0.1.4",
+    "readmeasy": "^0.1.6",
     "resolve-cwd": "^3.0.0",
     "standard-version": "^7.0.0",
     "ts-jest": "^24.1.0",
     "ts-node-dev": "^1.0.0-pre.43",
     "typedoc": "github:TypeStrong/typedoc",
-    "typedoc-neo-theme": "^1.0.2",
+    "typedoc-neo-theme": "^1.0.3",
     "typedoc-plugin-example-tag": "^1.0.2",
     "typedoc-plugin-external-module-map": "^1.0.0",
     "typedoc-plugin-external-module-name": "^2.1.0",
@@ -127,8 +127,8 @@
     "@types/lodash.pick": "^4.4.6",
     "@types/lodash.uniqwith": "^4.5.6",
     "@types/nunjucks": "^3.1.2",
-    "cli-ux": "^5.3.2",
-    "npm-check-updates": "^3.1.24"
+    "cli-ux": "^5.3.3",
+    "npm-check-updates": "^3.1.25"
   },
   "oclif": {
     "commands": "./dist/commands",
@@ -270,6 +270,6 @@
         "LICENSE"
       ]
     },
-    "version": "0.1.20"
+    "version": "0.1.26"
   }
 }

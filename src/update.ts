@@ -15,7 +15,7 @@ export default function update(intermodular: Intermodular, options: UpdateOption
   const addedFiles = [".gitignore"];
   const extraFeatures = [...(options.features || []), ...(intermodular.targetModule.config.features || [])];
   const features = ["common", ...extraFeatures];
-  console.log("<<<", options.features, "lll", intermodular.targetModule.config.features);
+
   uninstall(intermodular, { savePackage: false, uninstallPackages: false });
 
   //
