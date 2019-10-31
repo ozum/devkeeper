@@ -68,11 +68,11 @@
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.13.3",
     "@oclif/plugin-help": "^2.2.1",
-    "@types/jest": "^24.0.20",
-    "@types/node": "^12.11.7",
+    "@types/jest": "^24.0.21",
+    "@types/node": "^12.12.3",
     "@types/prettier": "^1.18.3",
-    "@typescript-eslint/eslint-plugin": "^2.5.0",
-    "@typescript-eslint/parser": "^2.5.0",
+    "@typescript-eslint/eslint-plugin": "^2.6.0",
+    "@typescript-eslint/parser": "^2.6.0",
     "@vuepress/plugin-active-header-links": "^1.2.0",
     "@vuepress/plugin-pwa": "^1.2.0",
     "commitizen": "^4.0.3",
@@ -80,9 +80,9 @@
     "cz-conventional-changelog": "^3.0.2",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-prettier": "^6.4.0",
+    "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^22.20.0",
+    "eslint-plugin-jest": "^23.0.2",
     "eslint-plugin-prettier": "^3.1.1",
     "globby": "^10.0.1",
     "husky": "^3.0.9",
@@ -106,6 +106,7 @@
     "standard-version": "^7.0.0",
     "ts-jest": "^24.1.0",
     "ts-node-dev": "^1.0.0-pre.43",
+    "tslib": "1.10.0",
     "typedoc": "github:TypeStrong/typedoc",
     "typedoc-neo-theme": "^1.0.3",
     "typedoc-plugin-example-tag": "^1.0.2",
@@ -128,7 +129,7 @@
     "@types/lodash.uniqwith": "^4.5.6",
     "@types/nunjucks": "^3.1.2",
     "cli-ux": "^5.3.3",
-    "npm-check-updates": "^3.1.25"
+    "npm-check-updates": "^3.1.26"
   },
   "oclif": {
     "commands": "./dist/commands",
@@ -254,7 +255,14 @@
       "scripts.docs:dev",
       "scripts.docs:build",
       "scripts.devkeeper:update",
+      "dependencies.@types/jest",
+      "dependencies.@types/node",
+      "dependencies.@typescript-eslint/eslint-plugin",
+      "dependencies.@typescript-eslint/parser",
+      "dependencies.eslint-config-prettier",
+      "dependencies.eslint-plugin-jest",
       "dependencies.readmeasy",
+      "dependencies.tslib",
       "dependencies.@vuepress/plugin-active-header-links",
       "dependencies.@vuepress/plugin-pwa",
       "dependencies.vuepress",
@@ -270,6 +278,6 @@
         "LICENSE"
       ]
     },
-    "version": "0.1.28"
+    "version": "0.1.30"
   }
 }
