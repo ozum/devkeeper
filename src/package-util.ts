@@ -230,9 +230,11 @@ export default class PackageUtil {
     if (this.sourcePackage.get("name") === this.targetPackage.get("name")) {
       this.targetPackage.assign("dependencies", data.dependencies || {});
       this.targetPackage.assign("dependencies", data.devDependencies || {}); // If updating itself add dev dependencies to dependencies.
-    } else if (addDependencies) {
+    } else {
       this.targetPackage.assign("dependencies", data.dependencies || {});
-      this.targetPackage.assign("devDependencies", data.devDependencies || {});
+      if (addDependencies) {
+        this.targetPackage.assign("devDependencies", data.devDependencies || {});
+      }
     }
 
     this.addToArray("files", data.files);
