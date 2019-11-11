@@ -4,7 +4,7 @@
   "module": "dist/esm/{{ intermodular.targetModule.name }}.mjs",
   "umd:main": "dist/umd/{{ intermodular.targetModule.name }}.js",
   "scripts": {
-    "build": "rm -rf dist && node_modules/.bin/rollup -c rollup.config.ts"
+    "build": "rm -rf dist && rollup -c rollup.config.ts"
   },
   "devDependencies": {
     "lodash.camelcase": "^4.3.0",
