@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "lodash.camelcase": "^4.3.0",
+    "rollup": "^1.26.5",
     "rollup-plugin-bundle-size": "^1.0.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
