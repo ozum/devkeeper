@@ -25,8 +25,12 @@ export default function update(intermodular: Intermodular, options: UpdateOption
   features.forEach(feature => {
     const overwritePath = join("module-files/files/", normalize(feature), "overwrite");
     const dontOverwritePath = join("module-files/files/", normalize(feature), "dont-overwrite");
-    addedFiles.push(...intermodular.copySync(overwritePath, ".")); // Copy files, and add them to modifications.
-    intermodular.copySync(dontOverwritePath, ".", { overwrite: false }); // Do not add non-overridable files to modifications.
+    if (sourceModule.existsSync(overwritePath)) {
+      addedFiles.push(...intermodular.copySync(overwritePath, ".")); // Copy files, and add them to modifications.
+    }
+    if (sourceModule.existsSync(dontOverwritePath)) {
+      intermodular.copySync(dontOverwritePath, ".", { overwrite: false }); // Do not add non-overridable files to modifications.
+    }
   });
 
   targetModule.renameSync(".gitignore-to-rename", ".gitignore"); // npm automatically converts .gitginore to .npmignore while publishing. So, to prevent this file is named as `.gitignore-to-rename`.
@@ -35,7 +39,11 @@ export default function update(intermodular: Intermodular, options: UpdateOption
   // ─── COSMICONFIG ────────────────────────────────────────────────────────────────
   //
   const config = targetModule.getDataFileSync(`.${sourceModule.nameWithoutUser}rc.json`);
-  config.set("test.coverageThreshold", { global: { branches: 100, functions: 100, lines: 100, statements: 100 } }, { ifNotExists: true });
+  config.set(
+    ["files", "jest.config.json", "coverageThreshold"],
+    { global: { branches: 100, functions: 100, lines: 100, statements: 100 } },
+    { ifNotExists: true }
+  );
   if (extraFeatures.length > 0) {
     config.set("features", extraFeatures);
   }
@@ -75,9 +83,11 @@ export default function update(intermodular: Intermodular, options: UpdateOption
   //
   // Read `files` key from `.devkeeper.json` and update all files with given data.
   const configFiles = config.get("files");
-  Object.keys(configFiles).forEach(filePath => {
-    const dataFile = targetModule.getDataFileSync(filePath);
-    dataFile.assign(configFiles[filePath]);
-    dataFile.saveSync();
-  });
+  if (configFiles && typeof configFiles === "object") {
+    Object.keys(configFiles).forEach(filePath => {
+      const dataFile = targetModule.getDataFileSync(filePath);
+      dataFile.assign(configFiles[filePath]);
+      dataFile.saveSync();
+    });
+  }
 }
