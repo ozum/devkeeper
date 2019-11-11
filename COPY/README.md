@@ -1,4 +1,36 @@
-{% include "module-header" %}
+# devkeeper
+
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+
+Keeps node module development environment up to date. Installs config files, development dependencies and modifies your package.json file and keeps them updated.
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Synopsis](#synopsis)
+  - [Installation](#installation)
+  - [Updating to latest version](#updating-to-latest-version)
+- [Usage](#usage)
+- [Commands](#commands)
+- [`package.json` Scripts](#packagejson-scripts)
+  - [For projects](#for-projects)
+  - [For Internal Use](#for-internal-use)
+    - [release](#release)
+- [Files](#files)
+- [Packages Used](#packages-used)
+  - [Commitizen](#commitizen)
+  - [Commit Lint & Standard Version](#commit-lint--standard-version)
+  - [Husky](#husky)
+  - [Lint Staged](#lint-staged)
+  - [Documentation](#documentation)
+    - [TypeDoc](#typedoc)
+    - [VuePress](#vuepress)
+  - [Notes](#notes)
+    - [.npmignore (or lack of)](#npmignore-or-lack-of)
+- [Development](#development)
+  - [File Locations](#file-locations)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Synopsis
 
@@ -7,11 +39,11 @@
 ## Installation
 
 ```bash
-$ npm install -D {{ package.name }}
+$ npm install -D devkeeper
 ```
 
 ```bash
-$ npx {{ package.name }} update -d --features vuepress
+$ npx devkeeper update -d --features vuepress
 ```
 
 ## Updating to latest version
@@ -23,34 +55,84 @@ $ npm run devkeeper:update
 # Usage
 
 <!-- usage -->
+
+```sh-session
+$ npm install -g devkeeper
+$ devkeeper COMMAND
+running command...
+$ devkeeper (-v|--version|version)
+devkeeper/0.1.35 darwin-x64 node-v12.12.0
+$ devkeeper --help [COMMAND]
+USAGE
+  $ devkeeper COMMAND
+...
+```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
+
+- [`devkeeper help [COMMAND]`](#devkeeper-help-command)
+- [`devkeeper uninstall`](#devkeeper-uninstall)
+- [`devkeeper update`](#devkeeper-update)
+
+## `devkeeper help [COMMAND]`
+
+display help for devkeeper
+
+```
+USAGE
+  $ devkeeper help [COMMAND]
+
+ARGUMENTS
+  COMMAND  command to show help for
+
+OPTIONS
+  --all  see all commands in CLI
+```
+
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.1/src/commands/help.ts)_
+
+## `devkeeper uninstall`
+
+Uninstall files and configuration added previously.
+
+```
+USAGE
+  $ devkeeper uninstall
+
+OPTIONS
+  -h, --help  show CLI help
+
+EXAMPLE
+  $ devkeeper uninstall
+```
+
+_See code: [dist/commands/uninstall.js](https://github.com/ozum/devkeeper/blob/v0.1.35/dist/commands/uninstall.js)_
+
+## `devkeeper update`
+
+Updates node module development environment by adding configuration files installing development dependencies and modifying 'package.json' file.
+
+```
+USAGE
+  $ devkeeper update
+
+OPTIONS
+  -d, --addDependencies    Add dependencies to 'package.json'
+  -f, --features=features  (CSV) Features to add. ('vuepress')
+  -h, --help               show CLI help
+
+EXAMPLES
+  $ devkeeper update
+  $ devkeeper update --features vuepress
+```
+
+_See code: [dist/commands/update.js](https://github.com/ozum/devkeeper/blob/v0.1.35/dist/commands/update.js)_
+
 <!-- commandsstop -->
-
-# Features
-
-Features are feature sets which is used by `-f` or  `--features` flag or by adding `.devkeeperrc.json` `features` array.
-
-## vuepress
-
-Adds vuepress related dependencies and scripts to `package.json`.
-
-`$ npm run devkeeper:update -f vuepress`
-
-## microbundle
-
-Adds microbundle related dependencies and scripts to `package.json`. Also updates related keys in `package.json`.
-
-`$ npm run devkeeper:update -f microbundle`
-
-## ts-import-helpers
-
-Updates `tsconfig.json` as `"importHelpers": true`. Also adds `tslib` dependency to `package.json`.
-
-`$ npm run devkeeper:update -f ts-import-helpers`
 
 # `package.json` Scripts
 
@@ -91,15 +173,14 @@ Descriptions of the parts of release script is as follows:
 
 | Part                                                                                   | Description                                                                                                                                                                                                                                                                                                      |
 | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `&&`                                                                                   | The right side of `&&` will only be evaluated if the exit status of the left side is zero (i.e. true).                                                                                                                                                                                                             |
-| `||`                                                                                   | The right side of `||` will only be evaluated if the exit status of the left side is non-zero (i.e. false).                                                                                                                                                                                                                      |
+| `&&`                                                                                   | The right side of `&&` will only be evaluated if the exit status of the left side is zero (i.e. true).                                                                                                                                                                                                           |
+| `||`                                                                                   | The right side of `||` will only be evaluated if the exit status of the left side is non-zero (i.e. false).                                                                                                                                                                                                      |
 | `(git diff --quiet && git diff --staged --quiet && echo No files has been changed) ||` | If any git tracked file has been changed command continues, echoes a warning otherwise.                                                                                                                                                                                                                          |
 | `npm-run-all -p build commit:add`                                                      | Builds project, adds all changed files to git. After that [commitizen](https://github.com/commitizen/cz-cli) prompt starts. Built files are for npm only and ignored by git, so those commands run parallel.                                                                                                     |
 | `git checkout master && git pull origin master`                                        | Checks master branch and pulls latest changes.                                                                                                                                                                                                                                                                   |
 | `standard-version --no-verify`                                                         | Updates version number and changelog.                                                                                                                                                                                                                                                                            |
 | `npm run readme && git add README.md && git commit --amend --no-edit`                  | Updates `README.md`, adds it to git. `--amend` adds `README.md` into previous commit. README template may need latest version number from `package.json`, so README build step is added after `standard-version` and to prevent additional commit everytime just for README, change is added to previous commit. |
 | `git push --follow-tags origin master && npm publish`                                  | Adds version to tags, pushes to git and publishes to npm.                                                                                                                                                                                                                                                        |
-
 
 # Files
 
@@ -204,4 +285,4 @@ with `-f` flag i.e. (`-f vuepress`)
 | `module-files/files/[feature name]/overwrite`           | Files to be copied and overwritten even they exist in target project. Also those are deleted during uninstall.                                                                                                                                        |
 | `module-files/package-json/[feature name]/package.json` | `package.json` entries to be added to target project's `package.json`. They are `nunjucks` templates which are passed { intermodular: [intermodular](https://intermodular.ozum.net/), path: [path module](https://nodejs.org/api/path.html) } object. |
 
-`package.json` entries are merged and added to target project's `package.json`. Also changes made by this project is tracked `{{ package.name }}Modifications` key in target project's `package.json`.
+`package.json` entries are merged and added to target project's `package.json`. Also changes made by this project is tracked `devkeeperModifications` key in target project's `package.json`.

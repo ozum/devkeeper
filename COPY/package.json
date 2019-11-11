@@ -86,7 +86,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "globby": "^10.0.1",
     "husky": "^3.0.9",
-    "intermodular": "^0.5.12",
+    "intermodular": "^0.5.11",
     "jest": "^24.9.0",
     "jsonlint": "^1.6.3",
     "licensor": "^4.3.0",
@@ -106,6 +106,7 @@
     "standard-version": "^7.0.0",
     "ts-jest": "^24.1.0",
     "ts-node-dev": "^1.0.0-pre.43",
+    "tslib": "1.10.0",
     "typedoc": "github:TypeStrong/typedoc",
     "typedoc-neo-theme": "^1.0.3",
     "typedoc-plugin-example-tag": "^1.0.2",
@@ -254,6 +255,7 @@
       "scripts.docs:dev",
       "scripts.docs:build",
       "scripts.devkeeper:update",
+      "dependencies.tslib",
       "dependencies.@types/jest",
       "dependencies.@types/node",
       "dependencies.@typescript-eslint/eslint-plugin",
@@ -278,6 +280,6 @@
         "LICENSE"
       ]
     },
-    "version": "0.1.35"
+    "version": "0.1.34"
   }
 }

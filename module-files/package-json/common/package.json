@@ -35,9 +35,6 @@
     "commit:add": "git add -A && npm run commit",
     "release": "(git diff --quiet && git diff --staged --quiet && echo No files has been changed) || (npm-run-all -p build commit:add && git checkout master && git pull origin master && standard-version --no-verify && npm run readme && git add README.md && git commit --amend --no-edit && git push --follow-tags origin master && git push --tags && npm publish)"
   },
-  "dependencies": {
-    "tslib": "1.10.0"
-  },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",

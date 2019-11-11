@@ -45,10 +45,10 @@ export default function update(intermodular: Intermodular, options: UpdateOption
     { ifNotExists: true }
   );
   if (extraFeatures.length > 0) {
-    config.set("features", extraFeatures);
+    config.set("features", [...new Set(extraFeatures)]);
   }
   config.saveSync();
-  targetModule.reloadConfig();
+  targetModule.reload();
 
   //
   // ─── LICENSE ────────────────────────────────────────────────────────────────────
@@ -77,6 +77,7 @@ export default function update(intermodular: Intermodular, options: UpdateOption
   if (options.addDependencies && packageUtil.dependenciesChanged) {
     targetModule.install();
   }
+  targetModule.reload();
 
   //
   // ─── UPDATE CONFIG FILES ────────────────────────────────────────────────────────
@@ -89,5 +90,11 @@ export default function update(intermodular: Intermodular, options: UpdateOption
       dataFile.assign(configFiles[filePath]);
       dataFile.saveSync();
     });
+  }
+
+  if (targetModule.hasAnyDependency("tslib")) {
+    const tsconfig = targetModule.getDataFileSync("tsconfig.json");
+    tsconfig.set("importHelpers", true);
+    tsconfig.saveSync();
   }
 }
