@@ -68,11 +68,11 @@
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.13.3",
     "@oclif/plugin-help": "^2.2.1",
-    "@types/jest": "^24.0.21",
-    "@types/node": "^12.12.3",
+    "@types/jest": "^24.0.22",
+    "@types/node": "^12.12.7",
     "@types/prettier": "^1.18.3",
-    "@typescript-eslint/eslint-plugin": "^2.6.0",
-    "@typescript-eslint/parser": "^2.6.0",
+    "@typescript-eslint/eslint-plugin": "^2.6.1",
+    "@typescript-eslint/parser": "^2.6.1",
     "@vuepress/plugin-active-header-links": "^1.2.0",
     "@vuepress/plugin-pwa": "^1.2.0",
     "commitizen": "^4.0.3",
@@ -82,7 +82,7 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^23.0.2",
+    "eslint-plugin-jest": "^23.0.3",
     "eslint-plugin-prettier": "^3.1.1",
     "globby": "^10.0.1",
     "husky": "^3.0.9",
@@ -100,7 +100,7 @@
     "lodash.uniqwith": "^4.5.0",
     "npm-run-all": "^4.1.5",
     "nunjucks": "^3.2.0",
-    "prettier": "^1.18.2",
+    "prettier": "^1.19.1",
     "readmeasy": "^0.1.6",
     "resolve-cwd": "^3.0.0",
     "standard-version": "^7.0.0",
@@ -114,9 +114,9 @@
     "typedoc-plugin-external-module-name": "^2.1.0",
     "typedoc-plugin-markdown": "^2.2.11",
     "typedoc-plugin-npm-externals": "^1.0.0",
-    "typescript": "^3.6.4",
+    "typescript": "^3.7.2",
     "vuepress": "^1.2.0",
-    "vuepress-bar": "^0.1.1"
+    "vuepress-bar": "^0.2.1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
@@ -255,14 +255,16 @@
       "scripts.docs:dev",
       "scripts.docs:build",
       "scripts.devkeeper:update",
+      "dependencies.tslib",
       "dependencies.@types/jest",
       "dependencies.@types/node",
       "dependencies.@typescript-eslint/eslint-plugin",
       "dependencies.@typescript-eslint/parser",
       "dependencies.eslint-config-prettier",
       "dependencies.eslint-plugin-jest",
+      "dependencies.prettier",
       "dependencies.readmeasy",
-      "dependencies.tslib",
+      "dependencies.typescript",
       "dependencies.@vuepress/plugin-active-header-links",
       "dependencies.@vuepress/plugin-pwa",
       "dependencies.vuepress",
@@ -278,6 +280,6 @@
         "LICENSE"
       ]
     },
-    "version": "0.1.30"
+    "version": "0.1.33"
   }
 }

@@ -59,8 +59,9 @@
     "experimentalDecorators": true, // Enables experimental support for ES7 decorators.
     "emitDecoratorMetadata": true // Enables experimental support for emitting type metadata for decorators. schema
   },
-  "include": ["src/**/*", "test-helper/**/*"],
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.test.ts", "**/*.spec.ts", "**/*.e2e.ts", "**/*/test-helper"],
   "typedocOptions": {
-    "exclude": ["**/*+(.test|.spec|.e2e).ts", "*/util/**/*", "*/helper/**/*"]
+    "exclude": ["**/*+(.test|.spec|.e2e).ts", "*/test-helper/**/*"]
   }
 }

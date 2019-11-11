@@ -57,15 +57,6 @@ export default function update(intermodular: Intermodular, options: UpdateOption
   }
 
   //
-  // ─── JEST ───────────────────────────────────────────────────────────────────────
-  //
-
-  const testConfig = config.get("test");
-  const jestConfig = targetModule.getDataFileSync(`jest.config.json`);
-  jestConfig.assign(testConfig, { ifNotExists: true });
-  jestConfig.saveSync();
-
-  //
   // ─── PACKAGE.JSON ───────────────────────────────────────────────────────────────
   //
   packageUtil.update({
@@ -78,4 +69,15 @@ export default function update(intermodular: Intermodular, options: UpdateOption
   if (options.addDependencies && packageUtil.dependenciesChanged) {
     targetModule.install();
   }
+
+  //
+  // ─── UPDATE CONFIG FILES ────────────────────────────────────────────────────────
+  //
+  // Read `files` key from `.devkeeper.json` and update all files with given data.
+  const configFiles = config.get("files");
+  Object.keys(configFiles).forEach(filePath => {
+    const dataFile = targetModule.getDataFileSync(filePath);
+    dataFile.assign(configFiles[filePath]);
+    dataFile.saveSync();
+  });
 }

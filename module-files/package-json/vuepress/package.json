@@ -8,6 +8,6 @@
     "@vuepress/plugin-active-header-links": "^1.2.0",
     "@vuepress/plugin-pwa": "^1.2.0",
     "vuepress": "^1.2.0",
-    "vuepress-bar": "^0.1.1"
+    "vuepress-bar": "^0.2.1"
   }
 }
