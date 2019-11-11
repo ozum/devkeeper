@@ -1,0 +1,18 @@
+{
+  "types": "dist/{{ intermodular.targetModule.name }}.d.ts",
+  "main": "dist/cjs/{{ intermodular.targetModule.name }}.js",
+  "module": "dist/esm/{{ intermodular.targetModule.name }}.mjs",
+  "umd:main": "dist/umd/{{ intermodular.targetModule.name }}.js",
+  "scripts": {
+    "build": "rm -rf dist && node_modules/.bin/rollup -c rollup.config.ts"
+  },
+  "devDependencies": {
+    "lodash.camelcase": "^4.3.0",
+    "rollup-plugin-bundle-size": "^1.0.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-typescript2": "^0.25.2"
+  }
+}

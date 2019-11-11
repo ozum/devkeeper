@@ -253,7 +253,7 @@ export default class PackageUtil {
   public update(
     { addDependencies, files = [], features = [] }: { addDependencies?: boolean; files?: string[]; features?: string[] } = {} as any
   ): void {
-    // Add feature specific tasks such as `microbundle`, `vuepress` etc.
+    // Add feature specific tasks such as `vuepress` etc.
     const featuredPackagesData = features.map(feature => this.getPackageJson(feature));
     const devkeeperUpdateScript = {
       scripts: {

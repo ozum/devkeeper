@@ -34,23 +34,14 @@ $ npm run devkeeper:update
 
 Features are feature sets which is used by `-f` or  `--features` flag or by adding `.devkeeperrc.json` `features` array.
 
-## vuepress
-
-Adds vuepress related dependencies and scripts to `package.json`.
-
 `$ npm run devkeeper:update -f vuepress`
 
-## microbundle
-
-Adds microbundle related dependencies and scripts to `package.json`. Also updates related keys in `package.json`.
-
-`$ npm run devkeeper:update -f microbundle`
-
-## ts-import-helpers
-
-Updates `tsconfig.json` as `"importHelpers": true`. Also adds `tslib` dependency to `package.json`.
-
-`$ npm run devkeeper:update -f ts-import-helpers`
+| Feature             | Description                                                                                                                         |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `vuepress`          | Adds vuepress related dependencies and scripts to `package.json`.                                                                   |
+| `rollup`            | Adds rollup related dependencies and scripts to `package.json`, updates related keys in `package.json` and adds `rollup.config.ts`. |
+| `microbundle`       | Adds microbundle related dependencies and scripts to `package.json`, updates related keys in `package.json`.                        |
+| `ts-import-helpers` | Updates `tsconfig.json` as `"importHelpers": true`. Also adds `tslib` dependency to `package.json`.                                 |
 
 # `package.json` Scripts
 
