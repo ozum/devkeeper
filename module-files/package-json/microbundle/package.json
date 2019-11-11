@@ -2,10 +2,12 @@
   "source": "src/{{ intermodular.targetModule.name }}.ts",
   "types": "dist/{{ intermodular.targetModule.name }}.d.ts",
   "main": "dist/{{ intermodular.targetModule.name }}.js",
-  "module": "dist/{{ intermodular.targetModule.name }}.mjs",
+  "module": "dist/{{ intermodular.targetModule.name }}.modern.js",
   "umd:main": "dist/{{ intermodular.targetModule.name }}.umd.js",
   "scripts": {
-    "build": "rm -rf dist && microbundle && microbundle -f modern"
+    "build": "rm -rf dist && run-p build:microbundle:** 'build:microbundle:** -- -o dist/dev --target node'",
+    "build:microbundle:all": "microbundle -f cjs,umd",
+    "build:microbundle:modern": "microbundle -f modern"
   },
   "devDependencies": {
     "microbundle": "^0.12.0-next.6"
