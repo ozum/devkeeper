@@ -12,6 +12,10 @@ Keeps node module development environment up to date. Installs config files, dev
   - [Updating to latest version](#updating-to-latest-version)
 - [Usage](#usage)
 - [Commands](#commands)
+- [Features](#features)
+  - [vuepress](#vuepress)
+  - [microbundle](#microbundle)
+  - [ts-import-helpers](#ts-import-helpers)
 - [`package.json` Scripts](#packagejson-scripts)
   - [For projects](#for-projects)
   - [For Internal Use](#for-internal-use)
@@ -61,7 +65,7 @@ $ npm install -g devkeeper
 $ devkeeper COMMAND
 running command...
 $ devkeeper (-v|--version|version)
-devkeeper/0.1.35 darwin-x64 node-v12.12.0
+devkeeper/0.1.36 darwin-x64 node-v12.12.0
 $ devkeeper --help [COMMAND]
 USAGE
   $ devkeeper COMMAND
@@ -110,7 +114,7 @@ EXAMPLE
   $ devkeeper uninstall
 ```
 
-_See code: [dist/commands/uninstall.js](https://github.com/ozum/devkeeper/blob/v0.1.35/dist/commands/uninstall.js)_
+_See code: [dist/commands/uninstall.js](https://github.com/ozum/devkeeper/blob/v0.1.36/dist/commands/uninstall.js)_
 
 ## `devkeeper update`
 
@@ -130,9 +134,31 @@ EXAMPLES
   $ devkeeper update --features vuepress
 ```
 
-_See code: [dist/commands/update.js](https://github.com/ozum/devkeeper/blob/v0.1.35/dist/commands/update.js)_
+_See code: [dist/commands/update.js](https://github.com/ozum/devkeeper/blob/v0.1.36/dist/commands/update.js)_
 
 <!-- commandsstop -->
+
+# Features
+
+Features are feature sets which is used by `-f` or `--features` flag or by adding `.devkeeperrc.json` `features` array.
+
+## vuepress
+
+Adds vuepress related dependencies and scripts to `package.json`.
+
+`$ npm run devkeeper:update -f vuepress`
+
+## microbundle
+
+Adds microbundle related dependencies and scripts to `package.json`. Also updates related keys in `package.json`.
+
+`$ npm run devkeeper:update -f microbundle`
+
+## ts-import-helpers
+
+Updates `tsconfig.json` as `"importHelpers": true`. Also adds `tslib` dependency to `package.json`.
+
+`$ npm run devkeeper:update -f ts-import-helpers`
 
 # `package.json` Scripts
 
