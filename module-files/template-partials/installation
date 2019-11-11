@@ -1,4 +1,4 @@
-{% if intermodular.config.features && intermodular.config.features.include("microbundle") %}
+{% if package.scripts.build.match("microbundle") %}
 
 | Format                             | Instructions                                                       |
 | ---------------------------------- | ------------------------------------------------------------------ |
@@ -9,7 +9,7 @@
 
 Development versions can be found in `dist/dev` directory.
 
-{% elif intermodular.config.features && intermodular.config.features.include("rollup") %}
+{% elif package.scripts.build.match("rollup") %}
 
 | Format                             | Instructions                                                    |
 | ---------------------------------- | --------------------------------------------------------------- |
