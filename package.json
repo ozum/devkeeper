@@ -41,14 +41,15 @@
     "devkeeper:update": "devkeeper update",
     "docs:build": "npm-run-all -p typedoc:md typedoc:html && rm -rf docs/nav.02.api docs/.vuepress/public/api-site && mv api-docs-md docs/nav.02.api && mv api-docs-html docs/.vuepress/public/api-site && cp assets/typedoc/01.typedoc-iframe.md docs/nav.02.api/ && vuepress build docs",
     "docs:dev": "vuepress dev docs",
+    "file:watch": "ts-node-dev --respawn --transpileOnly --compiler-options '{ \"module\": \"commonjs\" }'",
     "format": "prettier --write --config .prettierrc --check 'src/**/*.+(js|jsx|json|less|css|ts|tsx|md|vue|gql)'",
     "lint": "eslint --max-warnings=0 --ignore-path .gitignore --cache 'src/**/*.+(js|jsx|ts|tsx|vue)'",
     "postinstall": "bin/run update",
     "postpack": "rm -f oclif.manifest.json",
     "postreadme": "oclif-dev readme",
     "prepack": "oclif-dev manifest",
-    "readme": "if grep -q '{% include \"api.md\" %}' 'README.njk'; then npm run typedoc:single-md; mkdir -p temp && mv api.md temp/; fi && readmeasy --partial-dirs temp && rm -rf temp",
-    "release": "(git diff --quiet && git diff --staged --quiet && echo No files has been changed) || (npm-run-all -p build commit:add && git checkout master && git pull origin master && standard-version --no-verify && npm run readme && git add README.md && git commit --amend --no-edit && git push --follow-tags origin master && git push --tags && npm publish)",
+    "readme": "if grep -q '{% include \"api.md\" %}' 'README.njk'; then npm run typedoc:single-md; mkdir -p temp && mv api.md temp/; fi && readmeasy --partial-dirs temp,/module-files/template-partials && rm -rf temp",
+    "release": "(git diff --quiet && git diff --staged --quiet && echo No files has been changed) || (npm run build && npm run commit:add && git checkout master && git pull origin master && standard-version --no-verify && npm run readme && git add README.md && git commit --amend --no-edit && git push --follow-tags origin master && git push --tags && npm publish)",
     "test": "NODE_ENV=test jest --coverage --config=jest.config.json",
     "test:watch": "NODE_ENV=test jest --watch --config=jest.config.json",
     "typedoc:html": "rm -rf api-docs-html && typedoc --plugin typedoc-plugin-example-tag --mode file --out api-docs-html",
@@ -91,6 +92,7 @@
     "jsonlint": "^1.6.3",
     "licensor": "^4.3.0",
     "lint-staged": "^9.4.2",
+    "lodash.camelcase": "^4.3.0",
     "lodash.differencewith": "^4.5.0",
     "lodash.escaperegexp": "^4.1.2",
     "lodash.get": "^4.4.2",
@@ -110,6 +112,7 @@
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-terser": "^5.1.2",
     "rollup-plugin-typescript2": "^0.25.2",
     "standard-version": "^7.0.0",
     "ts-jest": "^24.1.0",
@@ -259,6 +262,7 @@
       "scripts.commit",
       "scripts.commit:add",
       "scripts.release",
+      "scripts.file:watch",
       "scripts.docs:dev",
       "scripts.docs:build",
       "scripts.devkeeper:update",
@@ -287,6 +291,6 @@
         "LICENSE"
       ]
     },
-    "version": "0.1.36"
+    "version": "0.1.47"
   }
 }
