@@ -62,7 +62,7 @@ $ npm install -g devkeeper
 $ devkeeper COMMAND
 running command...
 $ devkeeper (-v|--version|version)
-devkeeper/0.1.51 darwin-x64 node-v13.2.0
+devkeeper/0.1.52 darwin-x64 node-v13.2.0
 $ devkeeper --help [COMMAND]
 USAGE
   $ devkeeper COMMAND
@@ -94,7 +94,7 @@ OPTIONS
   --all  see all commands in CLI
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.2/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.3/src/commands/help.ts)_
 
 ## `devkeeper uninstall`
 
@@ -111,7 +111,7 @@ EXAMPLE
   $ devkeeper uninstall
 ```
 
-_See code: [dist/commands/uninstall.js](https://github.com/ozum/devkeeper/blob/v0.1.51/dist/commands/uninstall.js)_
+_See code: [dist/commands/uninstall.js](https://github.com/ozum/devkeeper/blob/v0.1.52/dist/commands/uninstall.js)_
 
 ## `devkeeper update`
 
@@ -131,7 +131,7 @@ EXAMPLES
   $ devkeeper update --features vuepress
 ```
 
-_See code: [dist/commands/update.js](https://github.com/ozum/devkeeper/blob/v0.1.51/dist/commands/update.js)_
+_See code: [dist/commands/update.js](https://github.com/ozum/devkeeper/blob/v0.1.52/dist/commands/update.js)_
 
 <!-- commandsstop -->
 
