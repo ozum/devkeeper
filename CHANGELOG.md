@@ -2,6 +2,59 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.52](https://github.com/ozum/devkeeper/compare/v0.1.4...v0.1.52) (2019-12-15)
+
+
+### Features
+
+* add dev bundles to microbundle ([6b172d3](https://github.com/ozum/devkeeper/commit/6b172d315615ff4dc78fbc16cea9faf820c20e5a))
+* add devkeeper to bin ([bc3bd33](https://github.com/ozum/devkeeper/commit/bc3bd33fb195f3b8e9bdfcb04647251593d993cd))
+* add devkeeper:update to package.json ([ea15ca2](https://github.com/ozum/devkeeper/commit/ea15ca28f16cd3aebef923b656bed079cdb249dd))
+* add microbundle feature ([e4ba20f](https://github.com/ozum/devkeeper/commit/e4ba20ffc99761eb95f03c5e62a3994d55e45e9e))
+* add rollup ([308e5f0](https://github.com/ozum/devkeeper/commit/308e5f080b82477d547d3e80cb64caff3948dbac))
+* add template partials ([720c3a6](https://github.com/ozum/devkeeper/commit/720c3a63abe3b8dc22e0c0662013872abef24972))
+* add ts-import-helpers feature ([d3a1c2a](https://github.com/ozum/devkeeper/commit/d3a1c2aff6235c921aaaa4ac17b86a6e7f04a715))
+
+
+### Bug Fixes
+
+* add "--config jest.config.json" to test script ([90f2732](https://github.com/ozum/devkeeper/commit/90f27327ce7b69cc9f43691bd4a9ac43e8bdb39f))
+* add @gerrit0/typedoc to dependencies ([3048e11](https://github.com/ozum/devkeeper/commit/3048e1135deb23950d59f03d9e376999f628b7f1))
+* add dependencies (non-dev) always ([1b6169d](https://github.com/ozum/devkeeper/commit/1b6169dbf9435562cf683179d8881f93e87d5925))
+* add file:watch scipt to package.json ([bbb96a4](https://github.com/ozum/devkeeper/commit/bbb96a40d4647fbd6354241e7f4ec6c22ab32799))
+* add git push --tags ([1cdce87](https://github.com/ozum/devkeeper/commit/1cdce87af84c7a7c56f4609c444f3851b09e3e7d))
+* add microbundle to dependencies ([4d3a51e](https://github.com/ozum/devkeeper/commit/4d3a51e9439b33c2fac2d0230aa77a270b091993))
+* add npm script ([d8517a6](https://github.com/ozum/devkeeper/commit/d8517a642f4d6d8215f7094e07849e7fc1f540b6))
+* add rollup dependencies ([7b88607](https://github.com/ozum/devkeeper/commit/7b88607524581959a26d6b3c0a4060d5531d485f))
+* add tslib dependency ([5dfa87f](https://github.com/ozum/devkeeper/commit/5dfa87f3f9209c394fad66507fd0df7e725fbf3a))
+* add tsx,tsc to lintstaged ([a86d616](https://github.com/ozum/devkeeper/commit/a86d61647637cacd397824b3fd2c70efd644f8f5))
+* add vuepress plugins ([3c62971](https://github.com/ozum/devkeeper/commit/3c6297156bb2511b56e43e58935d06ffb42098ed))
+* add vuepress to dependencies ([41fd87c](https://github.com/ozum/devkeeper/commit/41fd87c88fd7a1f043f1f8084e60705c634c65a2))
+* exclude .eslintrc.js from tests ([8b7be99](https://github.com/ozum/devkeeper/commit/8b7be999bcc5df07c7a22656a1fab24f63d453d2))
+* fix .eslintrc.js file name ([b683036](https://github.com/ozum/devkeeper/commit/b683036c2e8bc29f7a568e5d0676a17ad16a1e54))
+* fix config file update error ([79a7354](https://github.com/ozum/devkeeper/commit/79a7354f80051dacb9d9f7a26ffc6dfbe5831793))
+* fix development update functionality ([ee6c773](https://github.com/ozum/devkeeper/commit/ee6c7735b8bb88dcedbf31aa8f1e23cff3fbc7a3))
+* fix nunjucks env ([cb61cea](https://github.com/ozum/devkeeper/commit/cb61ceab5b605ca5d45dfb7c32760ce6785e5627))
+* fix package name ([b553b16](https://github.com/ozum/devkeeper/commit/b553b16244f8319fea689a1671994de0916a0151))
+* fix rollup build script ([840f4af](https://github.com/ozum/devkeeper/commit/840f4afaae71ef9e00e9b918202be8e9cf67cccb))
+* fix script and add missing dependencies ([d657cca](https://github.com/ozum/devkeeper/commit/d657cca036f158dc833ad25e70f41fcbe60f2177))
+* hide non exported member ([718a11f](https://github.com/ozum/devkeeper/commit/718a11f797b8faf52ad3a9866e51c1c250a2860c))
+* ignore .eslintrc.js in tests ([6903b12](https://github.com/ozum/devkeeper/commit/6903b12ef4f48ea7b96957887b8d273a30105a08))
+* move tslib from dev to normal dependencies ([6bd2a0e](https://github.com/ozum/devkeeper/commit/6bd2a0e678821c84a670f3ce2defeb9da0474d95))
+* push --tags added to git command ([41c74cb](https://github.com/ozum/devkeeper/commit/41c74cb92ed780dc52edbb3a0b20a00932b0080e))
+* remove @gerrit0/typedoc ([21afc32](https://github.com/ozum/devkeeper/commit/21afc327e6eb9aeb7e918c518191be217074a8c2))
+* remove copy files ([2936e80](https://github.com/ozum/devkeeper/commit/2936e80c053794488a48b36ca3475812076eb403))
+* remove typedoc-neo-theme ([d0177c2](https://github.com/ozum/devkeeper/commit/d0177c20e950350a4af644315b06f48a573756cf))
+* update dependencies ([31fc689](https://github.com/ozum/devkeeper/commit/31fc6895083245a42d5fa8fe73fcefc1a0ea294b))
+* update dependencies ([6ed2a11](https://github.com/ozum/devkeeper/commit/6ed2a113edbfde4459ec4551b6673f577104d04f))
+* update dependencies ([b9097df](https://github.com/ozum/devkeeper/commit/b9097df06500b836496cc453d6be23a867b02c2a))
+* update jest.config.json ([71152c8](https://github.com/ozum/devkeeper/commit/71152c8c12e657e7ca9a55001b2523de73875d55))
+* update packages ([db386b2](https://github.com/ozum/devkeeper/commit/db386b2c1d98a39ae7c5c84536daefeb1651e2bb))
+* update packages ([e0414e5](https://github.com/ozum/devkeeper/commit/e0414e5b81f6406f631aa7d56d8a3a967f2cb371))
+* update packages ([16366f4](https://github.com/ozum/devkeeper/commit/16366f4b9907ac63710399a01663c7e8d2cd9321))
+* update partial ([1613f29](https://github.com/ozum/devkeeper/commit/1613f29d4a9322e2ded8b44c0d4f29a8c66327da))
+* update partial template ([c63fcd3](https://github.com/ozum/devkeeper/commit/c63fcd36935a48da8905ee9b4b11971645b657ab))
+
 ### [0.1.51](https://github.com/ozum/devkeeper/compare/v0.1.4...v0.1.51) (2019-12-09)
 
 
