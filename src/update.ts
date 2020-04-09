@@ -22,7 +22,7 @@ export default function update(intermodular: Intermodular, options: UpdateOption
   // ─── FILES ──────────────────────────────────────────────────────────────────────
   //
 
-  features.forEach(feature => {
+  features.forEach((feature) => {
     const overwritePath = join("module-files/files/", normalize(feature), "overwrite");
     const dontOverwritePath = join("module-files/files/", normalize(feature), "dont-overwrite");
     if (sourceModule.existsSync(overwritePath)) {
@@ -85,9 +85,12 @@ export default function update(intermodular: Intermodular, options: UpdateOption
   // Read `files` key from `.devkeeper.json` and update all files with given data.
   const configFiles = config.get("files");
   if (configFiles && typeof configFiles === "object") {
-    Object.keys(configFiles).forEach(filePath => {
+    Object.keys(configFiles).forEach((filePath) => {
       const dataFile = targetModule.getDataFileSync(filePath);
-      dataFile.assign(configFiles[filePath]);
+      Object.keys(configFiles[filePath]).forEach((objectPath) => {
+        const objectPathArray = objectPath.includes(".") ? objectPath.split(".") : [objectPath];
+        dataFile.assign(objectPathArray, configFiles[filePath][objectPath]);
+      });
       dataFile.saveSync();
     });
   }
