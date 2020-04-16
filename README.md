@@ -148,6 +148,17 @@ Features are feature sets which is used by `-f` or `--features` flag or by addin
 | `microbundle`       | Adds microbundle related dependencies and scripts to `package.json`, updates related keys in `package.json`.                        |
 | `ts-import-helpers` | Updates `tsconfig.json` as `"importHelpers": true`. Also adds `tslib` dependency to `package.json`.                                 |
 
+# `.devkeeperrc.json`
+
+`.devkeeperrc.json` file in project root is used to configure additional options.
+
+| Key                           | Description                                                                                                                                                                                   |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `features`                    | Adds features see feature in this document.                                                                                                                                                   |
+| `files`                       | Merges configuration stored in values to files corresponding key. i.e. `"files": { "jest.config.json": { "coverageThreshold": ... } }` merges given configuration to `jest.config.json` file. |
+| `vuepress`                    | VuePress configuration                                                                                                                                                                        |
+| `vuepress.googleAnalytics.id` | Google Analytics Id for VuePress site. i.e. `UA-00000000-0`.                                                                                                                                  |
+
 # `package.json` Scripts
 
 ## For projects
