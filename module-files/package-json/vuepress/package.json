@@ -2,7 +2,7 @@
   "scripts": {
     "typedoc:md": "rm -rf api-docs-md && typedoc --platform vuepress --plugin typedoc-plugin-example-tag,typedoc-plugin-markdown --excludeExternals --excludePrivate --excludeProtected --theme markdown --readme none --mode file --out api-docs-md && find api-docs-md -name \"index.md\" -exec sh -c 'mv \"$1\" \"${1%index.md}\"index2.md' - {} \\;",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "npm-run-all -p typedoc:md typedoc:html && rm -rf docs/nav.02.api docs/.vuepress/public/api-site && mv api-docs-md docs/nav.02.api && mv api-docs-html docs/.vuepress/public/api-site && cp assets/typedoc/01.typedoc-iframe.md docs/nav.02.api/ && vuepress build docs"
+    "docs:build": "npm-run-all -p typedoc:md typedoc:html && rm -rf docs/nav.02.api docs/.vuepress/public/api-site && mv api-docs-md docs/nav.02.api && mv api-docs-html docs/.vuepress/public/api-site && cp assets/typedoc/01.typedoc-iframe.md docs/nav.02.api/ && NODE_ENV=production vuepress build docs"
   },
   "devDependencies": {
     "@vuepress/plugin-active-header-links": "^1.4.1",
