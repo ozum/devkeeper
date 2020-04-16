@@ -75,6 +75,7 @@
     "@typescript-eslint/eslint-plugin": "^2.28.0",
     "@typescript-eslint/parser": "^2.28.0",
     "@vuepress/plugin-active-header-links": "^1.4.1",
+    "@vuepress/plugin-google-analytics": "^1.4.1",
     "@vuepress/plugin-pwa": "^1.4.1",
     "commitizen": "^4.0.4",
     "concat-md": "^0.3.2",
@@ -308,6 +309,6 @@
         "LICENSE"
       ]
     },
-    "version": "0.1.59"
+    "version": "0.1.62"
   }
 }
