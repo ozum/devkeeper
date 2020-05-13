@@ -49,7 +49,7 @@
     "postreadme": "oclif-dev readme",
     "prepack": "oclif-dev manifest",
     "readme": "if grep -q '{% include \"api.md\" %}' 'README.njk'; then npm run typedoc:single-md; mkdir -p temp && mv api.md temp/; fi && readmeasy --partial-dirs temp,/module-files/template-partials && rm -rf temp",
-    "release": "(git diff --quiet && git diff --staged --quiet && echo No files has been changed) || (npm run build && npm run commit:add && git checkout master && git pull origin master && standard-version --no-verify && npm run readme && git add README.md && git commit --amend --no-edit && git push --follow-tags origin master && git push --tags && npm publish)",
+    "release": "(git diff --quiet && git diff --staged --quiet && echo No files has been changed) || (npm run build && npm run commit:add && git checkout master && git pull origin master && standard-version --no-verify && npm run readme && git add README.md && git commit --amend --no-edit && git push --follow-tags origin master && npm publish)",
     "test": "NODE_ENV=test jest --coverage --config=jest.config.json",
     "test:watch": "NODE_ENV=test jest --watch --config=jest.config.json",
     "typedoc:html": "rm -rf api-docs-html && typedoc --plugin typedoc-plugin-example-tag --mode file --out api-docs-html",
