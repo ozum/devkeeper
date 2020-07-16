@@ -1,6 +1,0 @@
-{
-  "*.{jsx,tsx}": ["eslint --cache --fix --max-warnings 0"],
-  "*.{js,ts}": ["eslint --cache --fix --max-warnings 0", "jest --bail --coverage --findRelatedTests --config=jest.config.json"],
-  "*.{json,md,gql,less,css}": ["prettier --write"],
-  ".*{rc, json}": "jsonlint"
-}

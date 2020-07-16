@@ -1,0 +1,12 @@
+{
+  "extends": "devkeeper/tsconfig",
+  "compilerOptions": {
+    "outDir": "dist",
+    "typeRoots": ["./@types", "./node_modules/@types"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.test.ts", "**/*.spec.ts", "**/*.e2e.ts", "**/*/test-helper"],
+  "typedocOptions": {
+    "exclude": ["**/*+(.test|.spec|.e2e).ts", "*/test-helper/**/*"]
+  }
+}

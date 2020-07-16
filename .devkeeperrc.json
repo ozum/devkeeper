@@ -1,4 +1,0 @@
-{
-  "features": ["vuepress"],
-  "files": { "jest.config.json": { "coverageThreshold": { "global": { "branches": 0, "functions": 0, "lines": 0, "statements": 0 } } } }
-}

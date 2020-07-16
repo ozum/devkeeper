@@ -1,5 +1,15 @@
 #!/usr/bin/env node
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { existsSync } = require("fs");
+const { join } = require("path");
+const { execSync } = require("child_process");
 
-require('@oclif/command').run()
-.then(require('@oclif/command/flush'))
-.catch(require('@oclif/errors/handle'))
+const ts = process.argv[0].endsWith("ts-node");
+const source = ts ? "../src/devkeeper" : "../dist/devkeeper";
+
+if (!ts && !existsSync(join(__dirname, "../dist/devkeeper.js"))) {
+  execSync("tsc", { cwd: join(__dirname, "..") });
+}
+
+const Devkeeper = require(source).default; // eslint-disable-line @typescript-eslint/no-var-requires, import/no-dynamic-require
+Devkeeper.run();
