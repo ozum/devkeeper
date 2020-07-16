@@ -9,6 +9,6 @@ beforeAll(async () => {
 describe("update", () => {
   it("should update module.", async () => {
     await helper.runCommand("update");
-    expect(helper.targetModule.package.get("scripts.keep")).toBe("devkeeper update");
+    expect(helper.targetModule.package.get("scripts.test")).toBe("devkeeper test");
   });
 });

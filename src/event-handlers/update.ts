@@ -12,10 +12,10 @@ export default async function handler({ intermodular }: HandlerArgs): Promise<vo
   targetModule.package.set("files", union(targetModule.package.get("files") || [], packageJsonFiles)); // Add `packageJsonFiles` to existing files.
 
   // const options = { if: (value?: string) => !value?.startsWith("devkeeper") };
-  const options = { if: (value?: string) => value !== undefined };
+  const options = { if: (value?: string) => value === undefined };
   targetModule.package.set("scripts.execute", "devkeeper execute", options);
   targetModule.package.set("scripts.build", "devkeeper build", options);
-  targetModule.package.set("scripts.test", "devkeeper test", options);
+  targetModule.package.set("scripts.test", "devkeeper test", { if: (value) => value === 'echo "Error: no test specified" && exit 1' });
   targetModule.package.set("scripts.lint", "devkeeper lint", options);
   targetModule.package.set("scripts.format", "devkeeper format", options);
   targetModule.package.set("scripts.release", "devkeeper release", options);

@@ -29,7 +29,6 @@ const builder = {
 };
 async function handler(args: UpdateArgs): Promise<void> {
   args.intermodular.log("info", "Update started.");
-  await args.intermodular.targetModule.package.set("scripts.keep", "devkeeper update");
   const update = getUpdateFunction(args);
   await args.devkeeper.doForEachPlugin(update);
   await args.devkeeper.fire("update", args);

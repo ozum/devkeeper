@@ -1,6 +1,6 @@
 {
   "name": "devkeeper",
-  "version": "1.0.1",
+  "version": "0.0.0-semantic-version",
   "description": "Keeps node module development environment up to date. Installs config files, development dependencies and modifies your package.json file and keeps them updated.",
   "author": {
     "name": "Özüm Eldoğan",
@@ -21,7 +21,13 @@
     "/lib/**/!(*.spec|*.test)*.*",
     "/dist/**/!(*.spec|*.test)*.*",
     "/@types",
-    "/module-files"
+    "/module-files",
+    ".eslintrc.js",
+    "husky.config.js",
+    "jest.config.js",
+    "lint-staged.config.js",
+    "prettier.config.js",
+    "tsconfig.json"
   ],
   "bin": {
     "devkeeper": "./bin/run"
@@ -39,7 +45,7 @@
     "release": "devkeeper release",
     "readme": "devkeeper readme --exclude '**/commands/**/*'",
     "keep": "devkeeper update",
-    "postinstall": "bin/run selflink",
+    "postinstall": "bin/run postinstall",
     "readme:yargs": "cli-docs-generator --cli=devkeeper -o devkeeper.md"
   },
   "dependencies": {
