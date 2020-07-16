@@ -151,8 +151,17 @@ export default class Devkeeper {
     extra: Record<string, any>,
     { args = [], exclude = [], addDash = true }: { args?: string[]; exclude?: string[]; addDash?: boolean } = {}
   ): any {
-    const builtinExclude = ["devkeeper", "intermodular", "_", "log-level", "$0", ...exclude, ...exclude.map((e) => decamelize(e, "-"))];
-    const combined: Record<string, any> = { ...(yargsParser as any).Parser(args, { xconfiguration: { "dot-notation": false } }), ...extra };
+    const builtinExclude = [
+      "devkeeper",
+      "intermodular",
+      "_",
+      "log-level",
+      "$0",
+      "lint-staged",
+      ...exclude,
+      ...exclude.map((e) => decamelize(e, "-")),
+    ];
+    const combined: Record<string, any> = { ...(yargsParser as any).Parser(args), ...extra };
     const keysWithDuplicate = Object.keys(combined); // yargs adds camelcase versions too i.e. { firstName: "Jo", firstName: "Jo" }
 
     const booleanValues = new Set([true, false, "true", "false"]);

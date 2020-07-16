@@ -20,9 +20,11 @@ async function handler({
   ...extraArgs
 }: FormatArgs): Promise<any> {
   // prettier --ignore-path .gitignore --write './**/*.+(json|less|css|md|gql|graphql|html|yaml)'
-  const args = lintStaged ? ["--ignore-path", ".eslintignore", "--write"] : ["--ignore-path", ".eslintignore", "--check"];
-  const files = ['"src/**/*.+(json|less|css|md|gql|graphql|html|yaml)"', "package.json"];
-  return intermodular.targetModule.execute("prettier", [...devkeeper.cleanArgs(extraArgs, { args }), ...files], { exitOnProcessFailure });
+  const args = lintStaged
+    ? ["--ignore-path", ".eslintignore", "--write"]
+    : ["--ignore-path", ".eslintignore", "--check", "(package.json|src/**/*.{json,less,css,md,gql,graphql,html,yaml})"];
+
+  return intermodular.targetModule.execute("prettier", [...devkeeper.cleanArgs(extraArgs, { args })], { exitOnProcessFailure });
 }
 
 export { describe, builder, handler };
