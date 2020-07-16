@@ -1,5 +1,5 @@
 {
-   "name": "devkeeper",
+  "name": "devkeeper",
   "version": "1.0.1",
   "description": "Keeps node module development environment up to date. Installs config files, development dependencies and modifies your package.json file and keeps them updated.",
   "author": {

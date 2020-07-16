@@ -18,7 +18,6 @@ const builder = (localYargs: typeof yargs): typeof yargs => {
 
 async function handler({ intermodular, devkeeper, watch, exitOnProcessFailure = true, ...extraArgs }: RunArgs): Promise<any> {
   const args = watch ? ["--no-notify", "--respawn", "--transpileOnly", "--compiler-options", '{ "module": "commonjs" }'] : [];
-
   return intermodular.targetModule.execute("ts-node-dev", devkeeper.cleanArgs(extraArgs, { args, exclude: ["watch"] }), {
     exitOnProcessFailure,
   });

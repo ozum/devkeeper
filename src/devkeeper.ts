@@ -140,6 +140,7 @@ export default class Devkeeper {
    * Eliminates arguments from devkeeper and duplicate created by yargs camel case conversion and
    * returns fkattened array ready to be used with `execa`.
    *
+   * @param args arge arguments which are combined with extra arguments. Extra arguments override those from `args`.
    * @param extra are arguments to be cleaned.
    * @param addDash adds single dash `-` to single character, and double dash `--` to word parameters.
    * @returns flattened array of arguments to be used with execa.

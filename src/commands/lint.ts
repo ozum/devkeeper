@@ -8,17 +8,19 @@ interface LintArgs extends HandlerArgs {
 const describe = "Lints and fixes source code.";
 
 const builder = (localYargs: typeof yargs): typeof yargs => {
-  localYargs.options({ "lint-staged": { type: "boolean", describe: "Optimizes command to be used with lint-staged." } }).strict(false);
+  localYargs
+    .positional("file", { describe: "file/dir/glob to pass to prettier to format.", type: "string" })
+    .options({ "lint-staged": { type: "boolean", describe: "Optimizes command to be used with lint-staged." } })
+    .strict(false);
   return localYargs;
 };
 
 async function handler({ intermodular, devkeeper, lintStaged, exitOnProcessFailure = true, ...extraArgs }: LintArgs): Promise<any> {
   // eslint --ignore-path .gitignore --cache --fix --max-warnings 0 --ext js,jsx,ts,tsx,vue src
-  const args = lintStaged
-    ? devkeeper.cleanArgs(extraArgs, { args: ["--cache", "--max-warnings", "0", "--fix"], exclude: ["lintStaged"] })
-    : [...devkeeper.cleanArgs(extraArgs, { args: ["--cache", "--max-warnings", "0", "--ext", "js,jsx,ts,tsx,vue"] }), "src"];
-
-  return intermodular.targetModule.execute("eslint", args, { exitOnProcessFailure });
+  // If no files are provided to check, use default. (js, ts etc. are handled by eslint with prettier plugin.)
+  const files = extraArgs?._?.[1] === undefined ? ["src"] : [];
+  const args = lintStaged ? ["--cache", "--max-warnings", "0", "--fix"] : ["--cache", "--max-warnings", "0", "--ext", "js,jsx,ts,tsx,vue"];
+  return intermodular.targetModule.execute("eslint", [...devkeeper.cleanArgs(extraArgs, { args }), ...files], { exitOnProcessFailure });
 }
 
 export { describe, builder, handler };
