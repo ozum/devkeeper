@@ -17,10 +17,10 @@ jobs:
       - name: Begin CI...
         uses: actions/checkout@v2
 
-      - name: Use Node 12
-        uses: actions/setup-node@v1
+      - name: Use Node
+        uses: actions/setup-node@v2-beta
         with:
-          node-version: 12.x
+          node-version: '12'
 
       # - name: Cache node modules (npm)
       #   uses: actions/cache@v1
@@ -30,11 +30,15 @@ jobs:
       #     restore-keys: |
       #       ${{ runner.os }}-npm-
 
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
       - name: Cache node modules (yarn)
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
-          path: ~/.cache/yarn
-          key: ${{ runner.os }}-yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
 
