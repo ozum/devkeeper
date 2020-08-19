@@ -100,7 +100,7 @@ jobs:
       #   if: steps.wait-for-eslint.outputs.conclusion != 'success' || steps.wait-for-prettier.outputs.conclusion != 'success'
 
       - name: Test
-        run: yarn test --ci --coverage --maxWorkers=2
+        run: yarn test --ci --maxWorkers=2
         env:
           CI: true
 
