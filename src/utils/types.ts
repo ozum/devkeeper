@@ -9,7 +9,7 @@ type HandlerDirectory = string;
 export type HandlerArgs = { intermodular: Intermodular; devkeeper: Devkeeper; exitOnProcessFailure?: boolean; [key: string]: any };
 
 /** Command or event handler signature. */
-export type Handler = (args: HandlerArgs) => Promise<void>;
+export type Handler<A extends HandlerArgs = HandlerArgs> = (args: A) => Promise<void>;
 
 /** Type for storing handler functions added by given name. For example more than one plugin may add `update` event handler. */
 export type Handlers = Record<HandlerName, Record<PluginName, Handler>>;

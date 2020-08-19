@@ -4,7 +4,7 @@ import { createLogger, format, transports, Logger } from "winston";
 import { join, dirname, extname, basename } from "path";
 import decamelize from "decamelize";
 import mapToObject from "array-map-to-object";
-import { Plugins, Handler, Handlers } from "./utils/types"; // eslint-disable-line import/order
+import { Plugins, Handler, Handlers, HandlerArgs } from "./utils/types"; // eslint-disable-line import/order
 import readdirp = require("readdirp");
 import yargsParser = require("yargs/yargs");
 import yargs = require("yargs");
@@ -273,9 +273,9 @@ export default class Devkeeper {
     return parser.argv;
   }
 
-  public async doForEachPlugin(fn: (i: Intermodular) => Promise<void>): Promise<any[]> {
+  public async doForEachPlugin<A extends HandlerArgs>(fn: Handler<A>, options: A): Promise<any[]> {
     const intermodulars = await Promise.all(this.pluginNames.map((name) => this.getIntermodular(name)));
-    return Promise.all(intermodulars.map(fn));
+    return Promise.all(intermodulars.map((intermodular) => fn({ ...options, intermodular, devkeeper: this })));
   }
 
   public async fire(event: string, options: Record<string, any>): Promise<void[]> {

@@ -3,10 +3,27 @@
   "engines": {
     "node": ">=12.18.0"
   },
-  "types": "dist/index.d.ts",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/bin",
+    "/lib/**/!(*.spec|*.test)*.*",
+    "/dist/**/!(*.spec|*.test)*.*",
+    "/@types",
+    "/module-files"
+  ],
   "homepage": "https: //github.com/{{ targetModule.package.get('author.github') or '_____user_____' }}/{{ targetModule.nameWithoutUser }}",
   "bugs": "https: //github.com/{{ targetModule.package.get('author.github') or '_____user_____' }}/{{ targetModule.nameWithoutUser }}/issues",
   "repository": "github:{{ targetModule.package.get('author.github') or '_____user_____' }}/{{ targetModule.nameWithoutUser }}",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "execute": "devkeeper execute",
+    "build": "devkeeper build",
+    "lint": "devkeeper lint",
+    "format": "devkeeper format",
+    "release": "devkeeper release",
+    "readme": "devkeeper readme",
+    "test": "devkeeper test",
+    "preuninstall": "devkeeper uninstall"
+  }
 }

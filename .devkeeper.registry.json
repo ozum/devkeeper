@@ -1,0 +1,23 @@
+{
+  "addedFiles": {
+    "devkeeper": [".github/workflows/main.yml", ".gitattributes", ".eslintignore", ".editorconfig", ".czrc", ".commitlintrc"]
+  },
+  "addedData": {
+    "new": {
+      "package.json": {
+        "engines": {
+          "node": ">=12.18.0"
+        },
+        "main": "dist/index.js",
+        "types": "dist/index.d.ts",
+        "files": ["/bin", "/lib/**/!(*.spec|*.test)*.*", "/dist/**/!(*.spec|*.test)*.*", "/@types", "/module-files"],
+        "homepage": "https: //github.com/ozum/devkeeper",
+        "bugs": "https: //github.com/ozum/devkeeper/issues",
+        "repository": "github:ozum/devkeeper"
+      }
+    },
+    "old": {
+      "package.json": {}
+    }
+  }
+}

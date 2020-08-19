@@ -26,7 +26,7 @@ async function selfLink(intermodular: Intermodular): Promise<void> {
 
 async function handler({ intermodular }: HandlerArgs): Promise<void> {
   await selfLink(intermodular);
-  intermodular.targetModule.package.set("scripts.keep", "devkeeper update");
+  intermodular.targetModule.package.set("scripts.keep", "devkeeper keep");
   await intermodular.targetModule.saveAll();
 }
 
